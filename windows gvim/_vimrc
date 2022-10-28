@@ -1,0 +1,193 @@
+syntax on                  " Enable syntax highlighting.
+set t_Co=256
+filetype plugin indent on  " Enable file type based indentation.
+set laststatus=2
+set showtabline=2
+set autoindent             " Respect indentation when starting a new line.
+set expandtab              " Expand tabs to spaces. Essential in Python.
+set tabstop=4              " Number of spaces tab is counted for.
+set shiftwidth=4           " Number of spaces to use for autoindent.
+set backspace=2            " Fix backspace behavior on most terminals.
+set background=dark
+set nowrap
+packloadall                     " Load all plugins.
+silent! helptags ALL            " Load help files for all plugins.
+set wildmenu                    " Enable enhanced tab autocomplete.
+set wildmode=list:longest,full  " Complete till longest string, then open menu.
+set number                      " Display column numbers.
+set relativenumber              " Display relative column numbers.
+set nohlsearch                    " Highlight search results.
+set incsearch                   " Search as you type.
+set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12:cANSI "set font for gui version of vim/nvim
+set is
+set si
+set guioptions-=m  "menu bar
+set guioptions-=T  "toolbar
+set guioptions-=r  "scrollbar
+
+
+" toggle button to show gui buttons and topbar
+function! ToggleGUICruft()
+  if &guioptions=='i'
+    exec('set guioptions=imTrL')
+  else
+    exec('set guioptions=i')
+  endif
+endfunction
+
+map <leader>gui <Esc>:call ToggleGUICruft()<cr>
+
+" by default, hide gui menus
+set guioptions=i
+
+" -------------------------------------------------------
+"some keybinds for convenience
+let mapleader = " "
+nmap tw :w!<cr>
+nmap twq :wq!<cr>
+nmap tws :wq! && :so%<cr>
+nmap tq :q!<cr>
+nmap ts :so %<cr>
+
+"some windows keybinds
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+nmap tn :tabnew<Return><C-w>w
+
+"tab movement
+nmap <tab> :tabnext<Return>
+nmap <S-tab> :tabprevious<Return>
+" nmap <leader> <C-w>w
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
+map sh <C-w>h
+map sl <C-w>l
+map sj <C-w>j
+map sk <C-w>k
+
+"for resizing windows 
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
+
+"fzf keymaps
+nnoremap <leader>fr :History<CR>
+nnoremap <leader>fr :History<CR>
+nnoremap <leader>ff :FZF ~<CR>
+nnoremap <leader>fi :FZF ~/Downloads/dotfiles/programs/ <CR>
+nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
+
+" maximizer
+nnoremap <leader>sm :MaximizerToggle<CR>
+
+"Plug-vim keybinds
+nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>pc :PlugClean<CR>
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"just to make those backup files in another directory so as to not make a mess
+let &directory = expand('~\vimfiles\swap')
+
+set backup
+let &backupdir = expand('~\vimfiles\backup')
+
+set undofile
+let &undodir = expand('~\vimfiles\undo')
+
+if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
+if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Plugins
+call plug#begin()
+Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
+Plug 'gruvbox-community/gruvbox'
+Plug 'overcache/NeoSolarized'
+" Plug 'vim-airline/vim-airline'
+Plug 'szw/vim-maximizer'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'kyazdani42/nvim-web-devicons'
+call plug#end()
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"
+let g:lightline = {
+          \ 'enable': {
+            \ 'statusline': 1,
+            \ 'tabline': 1
+            \ }
+         \ }
+
+let g:lightline = {
+            \ 'colorscheme': 'one',
+            \ }
+
+" let g:airline#extensions#tabline#enabled = 1
+
+"someone  on holy stack overflow suggested to load the theme after the theme plugins has been loaded
+colorscheme gruvbox         " Change a colorscheme.
+
+"8.2 Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
+
+function! CHANGE_CURR_DIR()
+    let _dir = expand("%:p:h")
+    exec "cd " . _dir
+    unlet _dir
+endfunction
+
+
+source $VIMRUNTIME/vimrc_example.vim
+
+
+autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+
+set nu
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set rnu
+    autocmd BufLeave,FocusLost,InsertEnter * set nornu
+augroup END
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg1 = substitute(arg1, '!', '\!', 'g')
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg2 = substitute(arg2, '!', '\!', 'g')
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let arg3 = substitute(arg3, '!', '\!', 'g')
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  let cmd = substitute(cmd, '!', '\!', 'g')
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
