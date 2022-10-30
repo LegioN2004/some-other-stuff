@@ -35,7 +35,7 @@ function! ToggleGUICruft()
   endif
 endfunction
 
-map <leader>gui <Esc>:call ToggleGUICruft()<cr>
+map <leader>gui <Esc>:call ToggleGUICruft()<CR>
 
 " by default, hide gui menus
 set guioptions=i
@@ -83,9 +83,8 @@ nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
 " maximizer
 nnoremap <leader>sm :MaximizerToggle<CR>
 
-"Plug-vim keybinds
-nnoremap <leader>pi :PlugInstall<CR>
-nnoremap <leader>pc :PlugClean<CR>
+" undotree
+nnoremap <leader>un :UndotreeToggle<CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "just to make those backup files in another directory so as to not make a mess
@@ -110,6 +109,7 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'gruvbox-community/gruvbox'
 Plug 'overcache/NeoSolarized'
+Plug 'mbbill/undotree'
 " Plug 'vim-airline/vim-airline'
 Plug 'szw/vim-maximizer'
 Plug 'itchyny/lightline.vim'
