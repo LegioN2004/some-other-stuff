@@ -1,4 +1,5 @@
 set relativenumber
+set noshowmode
 set cmdheight=1
 set smartcase
 set ignorecase
@@ -20,6 +21,9 @@ set sw=4
 set si
 set nowrap
 
+"stopping autoload
+let g:session_autosave = 'no'
+
 " colorscheme gruvbox
 "make background transparent
 
@@ -37,6 +41,7 @@ let mapleader = " "
 nmap tw :w!<cr>
 nmap twq :wq!<cr>
 nmap ts  :so %<cr>
+nmap tqa :qa!<cr>
 nmap tq :q!<cr>
 nmap ts :so %<cr>
 vnoremap <C-c> "*y
@@ -70,13 +75,18 @@ nnoremap <leader>fr :History<CR>
 nnoremap <leader>ff :FZF ~<CR>
 nnoremap <leader>fi :FZF ~/Downloads/dotfiles/programs/ <CR>
 nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
+nnoremap ;f :FZF %:p:h<CR>
 
 "Plug-vim keybinds
-nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>pi :PlugUpdate<CR>
 nnoremap <leader>pc :PlugClean<CR>
 
 "toggle maximizer
 nnoremap <leader>sm :MaximizerToggle<CR>
+
+"toggle undotree
+nnoremap <leader>un :UndotreeShow<CR>
+
 
 "neovide stuff
 if exists("g:neovide")   " Put anything you want to happen only in Neovide here
@@ -89,11 +99,23 @@ if exists("g:neovide")   " Put anything you want to happen only in Neovide here
 	let g:neovide_remember_window_size = v:true
 endif
 
-"Plugins
+
+" Autocommand that reloads neovim whenever you save the plugins.lua file
+augroup vimplug_user_config
+autocmd!
+autocmd BufWritePost init.vim source <afile> | PlugUpdate
+augroup end
+
+
+"Plugins stuff
 call plug#begin('C:/Users/sunny/AppData/Local/nvim-data/site/autoload')
 Plug 'tpope/vim-commentary'
+Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-maximizer'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 Plug 'vim-syntastic/syntastic'
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
@@ -114,6 +136,7 @@ hi NormalNC ctermbg=NONE guibg=NONE
 lua <<EOF
 require('lualine').setup()
 require('bufferline').setup()
+require('gitsigns').setup()
 vim.opt.list = true
 
 -- from ThePrimeagen ------------------------------------------
