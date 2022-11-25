@@ -6,6 +6,7 @@ set ignorecase
 set tabstop=4
 set autoindent
 set number
+set hidden
 set splitbelow
 set splitright
 set nowritebackup
@@ -36,6 +37,7 @@ autocmd BufEnter * call CHANGE_CURR_DIR()
             unlet _dir
         endfunction
 
+"------------------------------------------------------------------------------
 "some keybinds for convenience
 let mapleader = " "
 nmap tw :w!<cr>
@@ -87,6 +89,9 @@ nnoremap <leader>sm :MaximizerToggle<CR>
 "toggle undotree
 nnoremap <leader>un :UndotreeShow<CR>
 
+"toggle nerdtree
+" nnoremap sf :NERDTreeToggle<CR>
+nnoremap sf :Ex<CR>
 
 "neovide stuff
 if exists("g:neovide")   " Put anything you want to happen only in Neovide here
@@ -104,6 +109,8 @@ endif
 augroup vimplug_user_config
 autocmd!
 autocmd BufWritePost init.vim source <afile> | PlugUpdate
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup end
 
 
@@ -111,6 +118,7 @@ augroup end
 call plug#begin('C:/Users/sunny/AppData/Local/nvim-data/site/autoload')
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
+" Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-maximizer'
 Plug 'lewis6991/gitsigns.nvim'
