@@ -1,3 +1,5 @@
+syntax on
+set titlestring=%t
 set relativenumber
 set noshowmode
 set cmdheight=1
@@ -21,6 +23,9 @@ set is
 set sw=4
 set si
 set nowrap
+set autoindent
+set autowrite
+
 
 "stopping autoload
 let g:session_autosave = 'no'
@@ -108,7 +113,7 @@ endif
 " Autocommand that reloads neovim whenever you save the plugins.lua file
 augroup vimplug_user_config
 autocmd!
-autocmd BufWritePost init.vim source <afile> | PlugUpdate
+" autocmd BufWritePost init.vim source <afile> | PlugUpdate
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 augroup end
@@ -145,7 +150,7 @@ lua <<EOF
 require('lualine').setup()
 require('bufferline').setup()
 require('gitsigns').setup()
-vim.opt.list = true
+vim.opt.list = false
 
 -- from ThePrimeagen ------------------------------------------
 
@@ -238,9 +243,6 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-"" GoTo code navigation.
-
-
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
@@ -257,6 +259,3 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-
-
