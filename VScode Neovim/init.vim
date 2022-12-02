@@ -7,7 +7,6 @@ set ai
 set si
 set wildmenu
 set showmatch
-set relativenumber
 set nohlsearch
 set hidden
 set noerrorbells
@@ -16,6 +15,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set nu
+set relativenumber
 set smartcase
 set noswapfile
 set nobackup
@@ -34,25 +34,25 @@ nmap <leader>w :w!<cr>
 nmap <leader>wq :wq!<cr>
 nmap <leader>q :q!<cr>
 
-function! TermWrapper(command) abort
-	if !exists('g:split_term_style') | let g:split_term_style = 'vertical' | endif
-	if g:split_term_style ==# 'vertical'
-		let buffercmd = 'vnew'
-	elseif g:split_term_style ==# 'horizontal'
-		let buffercmd = 'new'
-	else
-		echoerr 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'' but is currently set to ''' . g:split_term_style . ''')'
-		throw 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'')'
-	endif
-	if exists('g:split_term_resize_cmd')
-		exec g:split_term_resize_cmd
-	endif
-	exec buffercmd
-	exec 'term ' . a:command
-	exec 'setlocal nornu nonu'
-	"exec 'startinsert'
-    "autocmd BufEnter <buffer> startinsert
-endfunction
+"function! TermWrapper(command) abort
+"	if !exists('g:split_term_style') | let g:split_term_style = 'vertical' | endif
+"	if g:split_term_style ==# 'vertical'
+"		let buffercmd = 'vnew'
+"	elseif g:split_term_style ==# 'horizontal'
+"		let buffercmd = 'new'
+"	else
+"		echoerr 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'' but is currently set to ''' . g:split_term_style . ''')'
+"		throw 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'')'
+"	endif
+"	if exists('g:split_term_resize_cmd')
+"		exec g:split_term_resize_cmd
+"	endif
+"	exec buffercmd
+"	exec 'term ' . a:command
+"	exec 'setlocal nornu nonu'
+"	"exec 'startinsert'
+"    "autocmd BufEnter <buffer> startinsert
+"endfunction
 
 " options
 " choose between 'vertical' and 'horizontal' for how the terminal window is split
