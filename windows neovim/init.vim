@@ -79,10 +79,10 @@ nmap <C-w><down> <C-w>-
 
 "fzf keymaps
 nnoremap <leader>fr :History<CR>
-nnoremap <leader>ff :FZF ~<CR>
+nnoremap <leader>f :FZF ~<CR>
 nnoremap <leader>fi :FZF ~/Downloads/dotfiles/programs/ <CR>
 nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
-nnoremap ;f :FZF %:p:h<CR>
+nnoremap ff :FZF %:p:h<CR>
 
 "Plug-vim keybinds
 nnoremap <leader>pi :PlugUpdate<CR>
