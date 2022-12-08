@@ -1,8 +1,10 @@
 syntax on                  " Enable syntax highlighting.
 set t_Co=256
+set encoding=UTF-8
 filetype plugin indent on  " Enable file type based indentation.
 set laststatus=2
 set showtabline=2
+set updatetime=50
 set autoindent             " Respect indentation when starting a new line.
 set expandtab              " Expand tabs to spaces. Essential in Python.
 set tabstop=4              " Number of spaces tab is counted for.
@@ -17,28 +19,30 @@ set wildmode=list:longest,full  " Complete till longest string, then open menu.
 set number                      " Display column numbers.
 set relativenumber              " Display relative column numbers.
 set nohlsearch                    " Highlight search results.
+set undofile
 set incsearch                   " Search as you type.
 set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12:cANSI "set font for gui version of vim/nvim
+let g:webdevicons_enable_vimfiler = 1
 set is
 set si
-set guioptions-=m  "menu bar
+" set guioptions-=m  "menu bar
 set guioptions-=T  "toolbar
-set guioptions-=r  "scrollbar
-
+" set guioptions-=r  "scrollbar
+set go-=e
 
 " toggle button to show gui buttons and topbar
-function! ToggleGUICruft()
-  if &guioptions=='i'
-    exec('set guioptions=imTrL')
-  else
-    exec('set guioptions=i')
-  endif
-endfunction
+" function! ToggleGUICruft()
+"   if &guioptions=='i'
+"     exec('set guioptions=imTrL')
+"   else
+"     exec('set guioptions=i')
+"   endif
+" endfunction
 
-map <leader>gui <Esc>:call ToggleGUICruft()<CR>
+" nnoremap <leader>gui <Esc>:call ToggleGUICruft()<CR>
 
 " by default, hide gui menus
-set guioptions=i
+" set guioptions=i
 
 " -------------------------------------------------------
 "some keybinds for convenience
@@ -75,16 +79,33 @@ nmap <C-w><down> <C-w>-
 
 "fzf keymaps
 nnoremap <leader>fr :History<CR>
-nnoremap <leader>fr :History<CR>
-nnoremap <leader>ff :FZF ~<CR>
-nnoremap <leader>fi :FZF ~/Downloads/dotfiles/programs/ <CR>
-nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
+nnoremap <leader>fzf :FZF ~<CR>
+nnoremap sf :Ex<CR>
+nnoremap <leader>fi :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\programs<CR>
+nnoremap <leader>dot :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\dotfiles<CR>
 
 " maximizer
 nnoremap <leader>sm :MaximizerToggle<CR>
 
 " undotree
 nnoremap <leader>un :UndotreeToggle<CR>
+
+" going up and down with cursor in the center of the buffer
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" pasting from clipboard instead of the vim register fix this afterwards
+nnoremap <leader>Y "+y 
+" -- next greatest remap ever : asbjornHaland
+" vim.keymap.set('n', "<leader>y", "\"+y")
+" vim.keymap.set('v', "<leader>y", "\"+y")
+" vim.keymap.set('n', "<leader>Y", "\"+Y")
+
+" vim.keymap.set('n', "<leader>d", "\"_d")
+" vim.keymap.set('v', "<leader>d", "\"_d")
+" vim.keymap.set('v', "<leader>d", "\"_d")
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "just to make those backup files in another directory so as to not make a mess
@@ -106,7 +127,7 @@ if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 "Plugins
 call plug#begin()
 Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'gruvbox-community/gruvbox'
 Plug 'overcache/NeoSolarized'
 Plug 'mbbill/undotree'
@@ -115,7 +136,6 @@ Plug 'szw/vim-maximizer'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "
@@ -123,14 +143,14 @@ let g:lightline = {
           \ 'enable': {
             \ 'statusline': 1,
             \ 'tabline': 1
-            \ }
+            \ },
          \ }
 
 let g:lightline = {
             \ 'colorscheme': 'one',
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
             \ }
-
-" let g:airline#extensions#tabline#enabled = 1
 
 "someone  on holy stack overflow suggested to load the theme after the theme plugins has been loaded
 colorscheme gruvbox         " Change a colorscheme.
@@ -151,43 +171,3 @@ autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++14 % -o %:r -Wl,--
 autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
 autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
 
-set nu
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set rnu
-    autocmd BufLeave,FocusLost,InsertEnter * set nornu
-augroup END
-
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg1 = substitute(arg1, '!', '\!', 'g')
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg2 = substitute(arg2, '!', '\!', 'g')
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let arg3 = substitute(arg3, '!', '\!', 'g')
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  let cmd = substitute(cmd, '!', '\!', 'g')
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
-endfunction
