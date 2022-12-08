@@ -26,15 +26,10 @@ set nowrap
 set autoindent
 set autowrite
 
-
 "stopping autoload
 let g:session_autosave = 'no'
 
-" colorscheme gruvbox
-"make background transparent
-
 " Always change the directory to working directory of file in current buffer
-"
 autocmd BufEnter * call CHANGE_CURR_DIR()
         function! CHANGE_CURR_DIR()
             let _dir = expand("%:p:h")
@@ -49,9 +44,9 @@ nmap tw :w!<cr>
 nmap twq :wq!<cr>
 nmap ts  :so %<cr>
 nmap tqa :qa!<cr>
-nmap tq :q!<cr>
+nnoremap tq :q!<cr>
 nmap ts :so %<cr>
-vnoremap <C-c> "*y
+" vnoremap <C-c> "*y
 
 "some windows keybinds
 nmap ss :split<Return><C-w>w
@@ -77,12 +72,24 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+"cycle through tabs
+nnoremap <C-Tab> <Tab>
+nnoremap <C-S-Tab> <S-Tab>
 "fzf keymaps
-nnoremap <leader>fr :History<CR>
-nnoremap <leader>f :FZF ~<CR>
-nnoremap <leader>fi :FZF ~/Downloads/dotfiles/programs/ <CR>
-nnoremap <leader>dot :FZF ~/Downloads/dotfiles/dotfiles/ <CR>
-nnoremap ff :FZF %:p:h<CR>
+noremap <leader>fr :History<CR>
+nnoremap fzf :FZF ~<CR>
+nnoremap <leader>sf :Ex<CR>
+nnoremap <leader>fi :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\programs<CR>
+" nnoremap <leader>dot :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\dotfiles <CR>
+nnoremap <leader>ff :FZF %:p:h<CR>
+" toggle Telescope
+nnoremap <leader>te :Telescope<CR>
+
+" fix the telescope sht
+nnoremap <silent> ;f <cmd>Telescope find_files<cr>
+" nnoremap <silent> ;r <cmd>Telescope live_grep<cr>
+" nnoremap <silent> \\ <cmd>Telescope buffers<cr>
+" nnoremap <silent> ;; <cmd>Telescope help_tags<cr>
 
 "Plug-vim keybinds
 nnoremap <leader>pi :PlugUpdate<CR>
@@ -92,13 +99,15 @@ nnoremap <leader>pc :PlugClean<CR>
 nnoremap <leader>sm :MaximizerToggle<CR>
 
 "toggle undotree
-nnoremap <leader>un :UndotreeShow<CR>
+nnoremap <leader>un :UndotreeToggle<CR>
 
-"toggle nerdtree
-" nnoremap sf :NERDTreeToggle<CR>
-nnoremap sf :Ex<CR>
-
-"neovide stuff
+" going up and down with cursor in the center of the buffer
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+     
+ " neovide stuff
 if exists("g:neovide")   " Put anything you want to happen only in Neovide here
 	let g:neovide_refresh_rate=60
 	let g:neovide_refresh_rate_idle=5
@@ -109,34 +118,23 @@ if exists("g:neovide")   " Put anything you want to happen only in Neovide here
 	let g:neovide_remember_window_size = v:true
 endif
 
-
-" Autocommand that reloads neovim whenever you save the plugins.lua file
-augroup vimplug_user_config
-autocmd!
-" autocmd BufWritePost init.vim source <afile> | PlugUpdate
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-augroup end
-
-
 "Plugins stuff
 call plug#begin('C:/Users/sunny/AppData/Local/nvim-data/site/autoload')
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
-" Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-maximizer'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
-Plug 'vim-syntastic/syntastic'
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
-Plug 'easymotion/vim-easymotion'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -148,8 +146,8 @@ hi NormalNC ctermbg=NONE guibg=NONE
 
 lua <<EOF
 require('lualine').setup()
-require('bufferline').setup()
 require('gitsigns').setup()
+require('Telescope').setup()
 vim.opt.list = false
 
 -- from ThePrimeagen ------------------------------------------
@@ -166,7 +164,6 @@ vim.keymap.set('n', "<leader>Y", "\"+Y")
 
 vim.keymap.set('n', "<leader>d", "\"_d")
 vim.keymap.set('v', "<leader>d", "\"_d")
-
 vim.keymap.set('v', "<leader>d", "\"_d")
 
 local augroup = vim.api.nvim_create_augroup
@@ -183,44 +180,8 @@ autocmd('TextYankPost', {
 	end,
 })
 
---bufferline things
-
-local status, bufferline = pcall(require, "bufferline")
-if (not status) then return end
-
-bufferline.setup({
-    options = {
-        mode = "tabs",
-        separator_style = 'slant',
-        always_show_bufferline = false,
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-        color_icons = true
-    },
-    highlights = {
-        separator = {
-            fg = '#073642',
-            bg = '#002b36',
-        },
-        separator_selected = {
-            fg = '#073642',
-        },
-        background = {
-            fg = '#657b83',
-            bg = '#002b36'
-        },
-        buffer_selected = {
-            fg = '#fdf6e3',
-            bold = true,
-        },
-        fill = {
-            bg = '#073642'
-        }
-    },
-})
-
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+--vim.keymap.set('n', '<Tab>', 'tabn<CR>', {})
+--vim.keymap.set('n', '<S-Tab>', 'tabp<CR>', {})
 ------------------------------------------------------------------------------------
 EOF
 
@@ -251,11 +212,19 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+"
+""lualine_x = {
+"      { 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+"      'encoding',
+"      'filetype'
+"    },
+""
+"
