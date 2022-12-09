@@ -1,4 +1,5 @@
 syntax on                  " Enable syntax highlighting.
+set noshowmode
 set t_Co=256
 set encoding=UTF-8
 filetype plugin indent on  " Enable file type based indentation.
@@ -128,8 +129,11 @@ if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 call plug#begin()
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
 Plug 'gruvbox-community/gruvbox'
 Plug 'overcache/NeoSolarized'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'mbbill/undotree'
 " Plug 'vim-airline/vim-airline'
 Plug 'szw/vim-maximizer'
@@ -138,22 +142,48 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"
+
+"" loading the plugin
+let g:webdevicons_enable = 1
+" Vim Script
+let g:lightline = {'colorscheme': 'tokyonight'}
+"lightline thing
 let g:lightline = {
-          \ 'enable': {
+            \ 'enable': {
             \ 'statusline': 1,
             \ 'tabline': 1
             \ },
-         \ }
-
-let g:lightline = {
             \ 'colorscheme': 'one',
+            \ 'component_function': {
+            \   'filetype': 'MyFiletype',
+            \   'fileformat': 'MyFileformat',
+            \ },
             \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
 
+  function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+  
+  function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+            " \ 'active':{
+            " \   'left': [ [ 'mode', 'paste' ],
+            " \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            " \},
+            " \ 'component_function': {
+            " \   'gitbranch': 'FugitiveHead'
+            " \ },
 "someone  on holy stack overflow suggested to load the theme after the theme plugins has been loaded
-colorscheme gruvbox         " Change a colorscheme.
+" colorscheme gruvbox         " Change a colorscheme.
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 0
+let g:tokyonight_transparent_background = 0
+let g:tokyonight_cursor = 'blue'
+colorscheme tokyonight
 
 "8.2 Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
 
