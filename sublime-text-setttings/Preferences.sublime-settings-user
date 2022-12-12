@@ -1,0 +1,13 @@
+{
+	"ignored_packages":
+	[
+		"Six",
+		"Vintage",
+		"Vintageous",
+	],
+	"color_scheme": "ayu-dark.sublime-color-scheme",
+	"theme": "ayu-dark.sublime-theme",
+	"neovintageous_build_version": 12700,
+	"font_face": "Hack",
+	"font_size": 11,
+}
