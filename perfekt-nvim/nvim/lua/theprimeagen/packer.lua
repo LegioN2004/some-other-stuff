@@ -55,6 +55,7 @@ return require 'packer'.startup(function()
 	use 'tpope/vim-surround'
 	use 'tjdevries/express_line.nvim'
 	use 'j-hui/fidget.nvim'
+	use 'nvim-tree/nvim-web-devicons'
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		requires = {
