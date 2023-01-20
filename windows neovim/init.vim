@@ -1,4 +1,6 @@
 syntax on
+set cindent
+set smartindent
 set titlestring=%t
 set relativenumber
 set noshowmode
@@ -9,14 +11,11 @@ set tabstop=4
 set autoindent
 set number
 set hidden
-set splitbelow
 set splitright
-set nowritebackup
-set noswapfile
-set nobackup
 "set clipboard=unnamed,unnamedplus
 set mouse=a
-set guifont=Hack\ NF:h12:cANSI
+set guifont=Hack\ NF:h11:cANSI
+set guicursor=" "
 " GuiFont=Hack\ NF:h12:cANSI
 set hls
 set is
@@ -26,18 +25,15 @@ set nowrap
 set autoindent
 set autowrite
 
-"stopping autoload
-let g:session_autosave = 'no'
-
 " Always change the directory to working directory of file in current buffer
 autocmd BufEnter * call CHANGE_CURR_DIR()
-        function! CHANGE_CURR_DIR()
-            let _dir = expand("%:p:h")
-            exec "cd " . _dir
-            unlet _dir
-        endfunction
+function! CHANGE_CURR_DIR()
+	let _dir = expand("%:p:h")
+	exec "cd " . _dir
+	unlet _dir
+endfunction
 
-"------------------------------------------------------------------------------
+"---------------------------------------------------------------------------------------------------------------------------------------------
 "some keybinds for convenience
 let mapleader = " "
 nmap tw :w!<cr>
@@ -78,7 +74,6 @@ nnoremap <C-S-Tab> <S-Tab>
 "fzf keymaps
 noremap <leader>fr :History<CR>
 nnoremap fzf :FZF ~<CR>
-nnoremap <leader>sf :Ex<CR>
 nnoremap <leader>fi :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\programs<CR>
 " nnoremap <leader>dot :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\dotfiles <CR>
 nnoremap <leader>ff :FZF %:p:h<CR>
@@ -101,13 +96,37 @@ nnoremap <leader>sm :MaximizerToggle<CR>
 "toggle undotree
 nnoremap <leader>un :UndotreeToggle<CR>
 
+"toggle fugitive
+nnoremap <leader>gs :Git<CR>
+
+"sessions management
+nnoremap <leader>mk :mksession ~/.nvim/sessions/
+nnoremap <leader>so :so ~/.nvim/sessions/
+
+"xolox-vim-sessions management
+let g:session_directory = "~/.nvim/xolox-vim-sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+
+" -- from ThePrimeagen ---------------------------------------------------------------------------------------------------------
 " going up and down with cursor in the center of the buffer
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
-     
- " neovide stuff
+
+" netrw tree style
+" nnoremap sf <Esc>:Lex<CR>:vertical resize 30<cr>
+" fix the open in new tab from netrw
+nnoremap <leader>e <Esc>:Lex<CR>:vertical resize 30<CR><CR>
+let g:netrw_liststyle = 3
+
+" nvim tree toggle
+" nnoremap <leader>e :NvimTreeToggle<CR>
+
+" neovide stuff
 if exists("g:neovide")   " Put anything you want to happen only in Neovide here
 	let g:neovide_refresh_rate=60
 	let g:neovide_refresh_rate_idle=5
@@ -120,37 +139,31 @@ endif
 
 "Plugins stuff
 call plug#begin('C:/Users/sunny/AppData/Local/nvim-data/site/autoload')
-Plug 'tpope/vim-commentary'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-surround'
-Plug 'szw/vim-maximizer'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
-Plug 'overcache/NeoSolarized'
-Plug 'gruvbox-community/gruvbox'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
-colorscheme NeoSolarized
-hi Normal ctermbg=NONE guibg=NONE
-hi NormalNC ctermbg=NONE guibg=NONE
+ colorscheme NeoSolarized
+" colorscheme tokyonight
+ hi Normal ctermbg=NONE guibg=NONE
+ hi NormalNC ctermbg=NONE guibg=NONE
 
 lua <<EOF
-require('lualine').setup()
 require('gitsigns').setup()
 require('Telescope').setup()
+require('toggleterm').setup ()
+require('lualine').setup ({
+options = {
+	-- ... your lualine config
+     ---from Devaslife---------------------------------------------------------------------------------------------------------------------------
+	{ 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
+	'encoding',
+	'filetype',
+	theme = 'auto',
+}
+})
+
 vim.opt.list = false
 
--- from ThePrimeagen ------------------------------------------
+-- from ThePrimeagen ---------------------------------------------------------------------------------------------------------
 
 vim.opt.updatetime = 50
 -- best remap from the ThePrimeagen thanks brudda
@@ -173,35 +186,35 @@ autocmd('TextYankPost', {
 	group = yank_group,
 	pattern = '*',
 	callback = function()
-		vim.highlight.on_yank({
-			higroup = 'IncSearch',
-			timeout = 40,
-		})
+	vim.highlight.on_yank({
+	higroup = 'IncSearch',
+	timeout = 40,
+	})
 	end,
 })
 
 --vim.keymap.set('n', '<Tab>', 'tabn<CR>', {})
 --vim.keymap.set('n', '<S-Tab>', 'tabp<CR>', {})
-------------------------------------------------------------------------------------
+
 EOF
 
-" coc things ---------------------------------------------------------------
+" coc things ------------------------------------------------------------------------------------------------------------------------------
 "
 
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+			\ coc#pum#visible() ? coc#pum#next(1) :
+			\ CheckBackspace() ? "\<Tab>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -220,11 +233,4 @@ nmap <silent> gr <Plug>(coc-references)
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
-"
-""lualine_x = {
-"      { 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-"      'encoding',
-"      'filetype'
-"    },
-""
 "
