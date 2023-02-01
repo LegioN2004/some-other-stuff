@@ -1,0 +1,204 @@
+syntax on                  " Enable syntax highlighting.
+set noshowmode
+set belloff=all
+set t_Co=256
+set encoding=UTF-8
+filetype plugin indent on  " Enable file type based indentation.
+set laststatus=2
+set showtabline=2
+set updatetime=50
+set autoindent             " Respect indentation when starting a new line.
+set expandtab              " Expand tabs to spaces. Essential in Python.
+set tabstop=4              " Number of spaces tab is counted for.
+set shiftwidth=4           " Number of spaces to use for autoindent.
+set backspace=2            " Fix backspace behavior on most terminals.
+set background=dark
+set nowrap
+packloadall                     " Load all plugins.
+silent! helptags ALL            " Load help files for all plugins.
+set wildmenu                    " Enable enhanced tab autocomplete.
+set wildmode=list:longest,full  " Complete till longest string, then open menu.
+set number                      " Display column numbers.
+set relativenumber              " Display relative column numbers.
+set nohlsearch                    " Highlight search results.
+set undofile
+set incsearch                   " Search as you type.
+set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12:cANSI "set font for gui version of vim/nvim
+let g:webdevicons_enable_vimfiler = 1
+set is
+set si
+" set guioptions-=m  "menu bar
+set guioptions-=T  "toolbar
+" set guioptions-=r  "scrollbar
+set go-=e
+
+" toggle button to show gui buttons and topbar
+" function! ToggleGUICruft()
+"   if &guioptions=='i'
+"     exec('set guioptions=imTrL')
+"   else
+"     exec('set guioptions=i')
+"   endif
+" endfunction
+
+" nnoremap <leader>gui <Esc>:call ToggleGUICruft()<CR>
+
+" by default, hide gui menus
+" set guioptions=i
+
+" -------------------------------------------------------
+"some keybinds for convenience
+let mapleader = " "
+nmap tw :w!<cr>
+nmap twq :wq!<cr>
+nmap tws :wq! && :so%<cr>
+nmap tq :q!<cr>
+nmap ts :so %<cr>
+
+"some windows keybinds
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+nmap tn :tabnew<Return><C-w>w
+
+"tab movement
+nmap <tab> :tabnext<Return>
+nmap <S-tab> :tabprevious<Return>
+" nmap <leader> <C-w>w
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
+map sh <C-w>h
+map sl <C-w>l
+map sj <C-w>j
+map sk <C-w>k
+
+"for resizing windows 
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
+
+"fzf keymaps
+nnoremap <leader>fr :History<CR>
+nnoremap <leader>fzf :FZF ~<CR>
+nnoremap sf :Ex<CR>
+nnoremap <leader>fi :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\programs<CR>
+nnoremap <leader>dot :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\dotfiles<CR>
+
+" maximizer
+nnoremap <leader>sm :MaximizerToggle<CR>
+
+" undotree
+nnoremap <leader>un :UndotreeToggle<CR>
+
+" going up and down with cursor in the center of the buffer
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" pasting from clipboard instead of the vim register fix this afterwards
+nnoremap <leader>Y "+y 
+" -- next greatest remap ever : asbjornHaland
+" vim.keymap.set('n', "<leader>y", "\"+y")
+" vim.keymap.set('v', "<leader>y", "\"+y")
+" vim.keymap.set('n', "<leader>Y", "\"+Y")
+
+" vim.keymap.set('n', "<leader>d", "\"_d")
+" vim.keymap.set('v', "<leader>d", "\"_d")
+" vim.keymap.set('v', "<leader>d", "\"_d")
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"just to make those backup files in another directory so as to not make a mess
+let &directory = expand('~\vimfiles\swap')
+
+set backup
+let &backupdir = expand('~\vimfiles\backup')
+
+set undofile
+let &undodir = expand('~\vimfiles\undo')
+
+if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
+if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Plugins
+call plug#begin()
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
+Plug 'gruvbox-community/gruvbox'
+Plug 'overcache/NeoSolarized'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'mbbill/undotree'
+" Plug 'vim-airline/vim-airline'
+Plug 'szw/vim-maximizer'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+call plug#end()
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"" loading the plugin
+let g:webdevicons_enable = 1
+" Vim Script
+let g:lightline = {'colorscheme': 'tokyonight'}
+"lightline thing
+let g:lightline = {
+            \ 'enable': {
+            \ 'statusline': 1,
+            \ 'tabline': 1
+            \ },
+            \ 'colorscheme': 'one',
+            \ 'component_function': {
+            \   'filetype': 'MyFiletype',
+            \   'fileformat': 'MyFileformat',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
+
+  function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+  
+  function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+            " \ 'active':{
+            " \   'left': [ [ 'mode', 'paste' ],
+            " \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            " \},
+            " \ 'component_function': {
+            " \   'gitbranch': 'FugitiveHead'
+            " \ },
+"someone  on holy stack overflow suggested to load the theme after the theme plugins has been loaded
+" colorscheme gruvbox         " Change a colorscheme.
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 0
+let g:tokyonight_transparent_background = 0
+let g:tokyonight_cursor = 'blue'
+colorscheme tokyonight
+
+"8.2 Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
+
+function! CHANGE_CURR_DIR()
+    let _dir = expand("%:p:h")
+    exec "cd " . _dir
+    unlet _dir
+endfunction
+
+
+source $VIMRUNTIME/vimrc_example.vim
+
+
+autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+
