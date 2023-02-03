@@ -138,5 +138,5 @@
 "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\sunny\\Downloads\\nvim-win64\\nvim-win64\\bin\\nvim.exe",
 "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
 "terminal.integrated.fontSize": 15,
-"window.zoomLevel": -1
+"window.zoomLevel": -0.5
 }
