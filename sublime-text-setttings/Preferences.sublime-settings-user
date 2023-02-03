@@ -2,12 +2,20 @@
 	"ignored_packages":
 	[
 		"Six",
+		"SublimeCodeIntel",
 		"Vintage",
 		"Vintageous",
 	],
-	"color_scheme": "ayu-dark.sublime-color-scheme",
-	"theme": "ayu-dark.sublime-theme",
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"theme": "Default Dark.sublime-theme",
 	"neovintageous_build_version": 12700,
 	"font_face": "Hack",
-	"font_size": 11,
+	/*"font_size": 11,*/
+	"material_theme_accent_sky": true,
+	"relative_line_numbers": true,
+	/*"material_theme_accent_bright-teal": true,*/
+	/*"material_theme_accent_bright-teal": true,*/
+	/*"material_theme_accent_scrollbars": true,*/
+	/*"material_theme_arrow_folders": true,*/
 }
+

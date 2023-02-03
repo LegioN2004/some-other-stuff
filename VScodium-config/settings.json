@@ -1,0 +1,29 @@
+{
+  "vscode-neovim.neovimInitVimPaths.win32": "D:\\VScode Neovim\\init.vim",
+  "editor.fontSize": 17,
+  "terminal.integrated.fontSize": 17,
+  "[Log]": {
+    "editor.fontSize": 10
+  },
+  "editor.fontFamily": "JetBrainsMono NF",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "editor.minimap.autohide": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "afterDelay",
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "editor.lineNumbers": "relative",
+  "window.menuBarVisibility": "compact",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "window.zoomLevel": -1
+}
