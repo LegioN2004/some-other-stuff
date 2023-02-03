@@ -25,5 +25,5 @@
   "editor.lineNumbers": "relative",
   "window.menuBarVisibility": "compact",
   "liveServer.settings.donotShowInfoMsg": true,
-  "window.zoomLevel": -1
+  "window.zoomLevel": -0.5
 }
