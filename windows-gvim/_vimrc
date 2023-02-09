@@ -1,5 +1,6 @@
 syntax on                  " Enable syntax highlighting.
 set noshowmode
+set belloff=all
 set t_Co=256
 set encoding=UTF-8
 filetype plugin indent on  " Enable file type based indentation.

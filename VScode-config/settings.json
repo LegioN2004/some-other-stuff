@@ -1,0 +1,142 @@
+{
+    "explorer.confirmDelete": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "git.confirmSync": false,
+    "editor.fontFamily": "Hack NF",
+    "code-runner.runInTerminal": true,
+    "editor.formatOnPaste": true,
+    "code-runner.executorMapByFileExtension": {
+
+        ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
+        ".vbs": "cscript //Nologo",
+        ".scala": "scala",
+        ".jl": "julia",
+        ".cr": "crystal",
+        ".ml": "ocaml",
+        ".exs": "elixir",
+        ".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        ".rkt": "racket",
+        ".scm": "csi -script",
+        ".ahk": "autohotkey",
+        ".au3": "autoit3",
+        ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+        ".kts": "kotlinc -script",
+        ".dart": "dart",
+        ".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        ".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        ".hs": "runhaskell",
+        ".nim": "nim compile --verbosity:0 --hints:off --run",
+        ".csproj": "dotnet run --project",
+        ".fsproj": "dotnet run --project",
+        ".lisp": "sbcl --script",
+        ".kit": "kitc --run",
+        ".v": "v run",
+        ".vsh": "v run",
+        ".sass": "sass --style expanded",
+        ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        ".ring": "ring",
+        ".sml": "cd $dir && sml $fileName"
+    },
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c11",
+    "code-runner.executorMap": {
+        
+        
+        "javascript": "node",
+        "php": "C:\\php\\php.exe",
+        "python": "python",
+        "perl": "perl",
+        "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+        "go": "go run",
+        "html": "\"C:\\Program Data\\Google Chrome\\chrome.exe\"",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    },
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "editor.fontSize": 15,
+    "terminal.integrated.fontFamily": "Hack NF",
+
+    "workbench.colorCustomizations": {
+    "statusBar.background" : "#1A1A1A",
+    "statusBar.noFolderBackground" : "#212121",
+    "statusBar.debuggingBackground": "#263238"
+},
+"editor.fontLigatures": true,
+"terminal.integrated.gpuAcceleration": "on",
+"vscode_vibrancy.opacity": -1,
+"glassit.alpha": 235,
+"vscode_vibrancy.imports": [
+
+    "$theme-style$"
+],
+"terminal.integrated.profiles.windows": {
+    "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+        "path": [
+            "${env:windir}\\Sysnative\\cmd.exe",
+            "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+    },
+    "GitBash": {
+        "source": "Git Bash",
+        "path": [
+            "D:\\Program Files\\Git\\bin\\bash.exe"
+        ],
+        "icon": "terminal-bash",
+    },
+
+    "Arch (WSL)": {
+        "path": "C:\\WINDOWS\\System32\\wsl.exe",
+        "args": [
+            "-d",
+            "Arch"
+        ]
+    },
+    "Windows PowerShell": {
+        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+},
+
+"terminal.integrated.defaultProfile.windows": "PowerShell",
+"security.workspace.trust.untrustedFiles": "open",
+"terminal.integrated.defaultProfile.linux": "zsh",
+"workbench.iconTheme": "vscode-icons",
+"editor.minimap.autohide": true,
+"settingsSync.ignoredExtensions": [
+    "ms-vscode-remote.remote-wsl",
+    "equinusocio.vsc-material-theme",
+    "equinusocio.vsc-community-material-theme"
+],
+"files.autoSave": "afterDelay",
+"explorer.confirmDragAndDrop": false,
+"vsicons.dontShowNewVersionMessage": true,
+"liveServer.settings.donotShowInfoMsg": true,
+"emmet.triggerExpansionOnTab": false,
+"vscode-neovim.neovimInitVimPaths.win32": "D:\\VScode Neovim\\init.vim",
+"editor.autoClosingBrackets": "never",
+"editor.cursorSmoothCaretAnimation": "on",
+"editor.lineNumbers": "relative",
+"editor.fontSize": 17,
+"gitlens.defaultDateLocale": null,
+"[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"editor.semanticHighlighting.enabled": true,
+"workbench.preferredDarkColorTheme": "Community Material Theme Ocean High Contrast",
+"workbench.preferredHighContrastColorTheme": "Community Material Theme Ocean High Contrast",
+"typescript.inlayHints.enumMemberValues.enabled": true,
+"window.commandCenter": true,
+"markdown.updateLinksOnFileMove.enabled": "always",
+"vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\sunny\\Downloads\\nvim-win64\\nvim-win64\\bin\\nvim.exe",
+"workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+"terminal.integrated.fontSize": 15,
+"window.zoomLevel": -0.5
+}
