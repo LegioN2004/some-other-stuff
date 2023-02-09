@@ -1,0 +1,13 @@
+initial settings.json of the arch code-oss delete this line btw
+{
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "vscode-neovim.neovimInitVimPaths.linux": " ~/ghq/github.com/legion2004/some-other-stuff/VScode Neovim/init.vim",
+    "vscode-neovim.mouseSelectionStartVisualMode": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "JetBrainsMono-Regular, Hack NF",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "code-runner.runInTerminal": true
+}
