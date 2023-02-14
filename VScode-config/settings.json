@@ -2,7 +2,7 @@
     "explorer.confirmDelete": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "git.confirmSync": false,
-    "editor.fontFamily": "Hack NF",
+    "editor.fontFamily": "JetBrainsMono NF, Hack NF",
     "code-runner.runInTerminal": true,
     "editor.formatOnPaste": true,
     "code-runner.executorMapByFileExtension": {
@@ -38,11 +38,9 @@
         ".ring": "ring",
         ".sml": "cd $dir && sml $fileName"
     },
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c17",
     "code-runner.executorMap": {
-        
-        
         "javascript": "node",
         "php": "C:\\php\\php.exe",
         "python": "python",
@@ -52,17 +50,18 @@
         "html": "\"C:\\Program Data\\Google Chrome\\chrome.exe\"",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+        // "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt" // the next line runs cpp files with names having spaces or dots,etc
+        "cpp": "cd $dir && g++ \"$fileName\" -o \"$fileNameWithoutExt.exe\" && & \"$dir$fileNameWithoutExt.exe\""
     },
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "editor.fontSize": 15,
-    "terminal.integrated.fontFamily": "Hack NF",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontFamily": "JetBrainsMono NF, Hack NF",
 
     "workbench.colorCustomizations": {
-    "statusBar.background" : "#1A1A1A",
+    "editor.background" : "#1A1A1A",
     "statusBar.noFolderBackground" : "#212121",
-    "statusBar.debuggingBackground": "#263238"
+    "statusBar.debuggingBackground": "#2a3940"
 },
 "editor.fontLigatures": true,
 "terminal.integrated.gpuAcceleration": "on",
@@ -90,7 +89,7 @@
         "path": [
             "D:\\Program Files\\Git\\bin\\bash.exe"
         ],
-        "icon": "terminal-bash",
+        "icon": "terminal-bash"
     },
 
     "Arch (WSL)": {
@@ -120,23 +119,24 @@
 "vsicons.dontShowNewVersionMessage": true,
 "liveServer.settings.donotShowInfoMsg": true,
 "emmet.triggerExpansionOnTab": false,
-"vscode-neovim.neovimInitVimPaths.win32": "D:\\VScode Neovim\\init.vim",
+"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
 "editor.autoClosingBrackets": "never",
-"editor.cursorSmoothCaretAnimation": "on",
 "editor.lineNumbers": "relative",
-"editor.fontSize": 17,
 "gitlens.defaultDateLocale": null,
 "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
 },
 "editor.semanticHighlighting.enabled": true,
-"workbench.preferredDarkColorTheme": "Community Material Theme Ocean High Contrast",
-"workbench.preferredHighContrastColorTheme": "Community Material Theme Ocean High Contrast",
 "typescript.inlayHints.enumMemberValues.enabled": true,
 "window.commandCenter": true,
 "markdown.updateLinksOnFileMove.enabled": "always",
-"vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\sunny\\Downloads\\nvim-win64\\nvim-win64\\bin\\nvim.exe",
-"workbench.colorTheme": "Visual Studio 2017 Dark - C++",
-"terminal.integrated.fontSize": 15,
-"window.zoomLevel": -0.5
+"vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
+"terminal.integrated.fontSize": 14,
+"window.zoomLevel": -0.8,
+"[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"terminal.integrated.autoReplies": {
+
+}
 }
