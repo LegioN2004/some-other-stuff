@@ -6,10 +6,8 @@ lsp.ensure_installed ({
 	'clangd' ,
 	'sumneko_lua' ,
 	'html' ,
-	'html' ,
 	'cssls' ,
 	'emmet_ls' ,
-	'eslint' ,
 })
 
 
@@ -45,10 +43,10 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
 	suggest_lsp_servers = false,
 	sign_icons = {
-		error = 'E',
-		warn = 'W',
-		hint = 'H',
-		info = 'I'
+		error = '',
+		warn = '',
+		hint = '',
+		info = ''
 	}
 })
 

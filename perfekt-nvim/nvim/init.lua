@@ -1,4 +1,7 @@
+print("Konichiwaaa")
 require("theprimeagen.remaps")
 require("theprimeagen.packer")
 require("theprimeagen.settings")
-print("hello world")
+require("legion.macros")
+require("legion.neovide")
+require("legion.telescope")

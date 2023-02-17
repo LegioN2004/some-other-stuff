@@ -99,6 +99,7 @@ let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
 nnoremap ;f <Esc>:Lex<CR>:vertical resize 30<CR><CR>
+nnoremap <leader>ex <Esc>:Ex<CR>
 let g:netrw_liststyle = 3
 ]])
 
@@ -129,8 +130,8 @@ vim.keymap.set('n', "N", "nzzzv")
 ------------------------------------------------------------------
 --
 -- shortcuts for commenting
-vim.keymap.set('n', "<leader>/", vim.cmd.Commentary)
-vim.keymap.set('v', "<leader>/", vim.cmd.Commentary)
+vim.keymap.set('n', "<C-/>", vim.cmd.Commentary)
+vim.keymap.set('v', "<C-/>", vim.cmd.Commentary)
 
 -- undotree keymaps
 vim.keymap.set('n', "<leader>un", ":UndotreeToggle<CR>")

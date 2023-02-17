@@ -52,8 +52,8 @@ vim.opt.updatetime = 50 --updatetime
 
 -- turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-		pattern = '*',
-		command = 'set nopaste'
+	pattern = '*',
+	command = 'set nopaste'
 })
 
 vim.opt.formatoptions:append { 'r' }
@@ -63,44 +63,49 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 -- vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.mouse = a
+
+-- for colors to render correctly
+vim.opt.termguicolors = true
+
 
 -- Always change the directory to working directory of file in current buffer
 vim.cmd([[
 set signcolumn=yes
- 
+set mouse=a
 " Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
-autocmd BufEnter * call CHANGE_CURR_DIR()
-function! CHANGE_CURR_DIR()
-let _dir = expand("%:p:h")
-exec "cd " . _dir
-unlet _dir
-endfunction
+" autocmd BufEnter * call CHANGE_CURR_DIR()
+" function! CHANGE_CURR_DIR()
+" let _dir = expand("%:p:h")
+" exec "cd " . _dir
+" unlet _dir
+" endfunction
+let g:netrw_banner=0        " disable annoying banner
 
 if (exists('+colorcolumn'))
-		set colorcolumn=80
-		highlight ColorColumn ctermbg=9
-		endif
+	set colorcolumn=80
+	highlight ColorColumn ctermbg=9
+	endif
 
-		set undofile
-		let &undodir = expand('~/nvimfiles/undo')
+	set undofile
+	let &undodir = expand('~/nvimfiles/undo')
 
-		if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
-				]])
+	if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+		]])
 
-				local augroup = vim.api.nvim_create_augroup
-				local autocmd = vim.api.nvim_create_autocmd
-				local yank_group = augroup('HighlightYank', {})
-				autocmd('TextYankPost', {
-						group = yank_group,
-						pattern = '*',
-						callback = function()
-								vim.highlight.on_yank({
-										higroup = 'IncSearch',
-										timeout = 40,
-								})
-						end,
+		local augroup = vim.api.nvim_create_augroup
+		local autocmd = vim.api.nvim_create_autocmd
+		local yank_group = augroup('HighlightYank', {})
+		autocmd('TextYankPost', {
+			group = yank_group,
+			pattern = '*',
+			callback = function()
+				vim.highlight.on_yank({
+					higroup = 'IncSearch',
+					timeout = 40,
 				})
+			end,
+		}
+)
 
 
 

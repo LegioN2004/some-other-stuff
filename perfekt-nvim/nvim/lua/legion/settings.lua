@@ -74,19 +74,19 @@ vim.opt.formatoptions:append { 'r' }
 
 -- Always change the directory to working directory of file in current buffer
 vim.cmd([[
-
 let g:session_autosave = 'no'
 "set listchars=eol:⏎,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·
-"" set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
+" set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
 
 " Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
-autocmd BufEnter * call CHANGE_CURR_DIR()
+" set autochdir
+"autocmd BufEnter * call CHANGE_CURR_DIR()
+"function! CHANGE_CURR_DIR()
+"   let _dir = expand("%:p:h")
+"   exec "cd " . _dir
+"   unlet _dir
+"endfunction
 
-function! CHANGE_CURR_DIR()
-    let _dir = expand("%:p:h")
-    exec "cd " . _dir
-    unlet _dir
-endfunction
 if (exists('+colorcolumn'))
     set colorcolumn=80
     highlight ColorColumn ctermbg=9
