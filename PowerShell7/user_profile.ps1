@@ -18,6 +18,8 @@ Set-Alias grep findstr
 Set-Alias ll ls
 Set-Alias touch New-Item
 Set-Alias v nvim
+Set-Alias nev 'C:\Users\sunny\Downloads\neovide-windows\neovide.exe'
+Set-Alias neovide 'C:\Users\sunny\Downloads\neovide-windows\neovide.exe'
 Set-Alias g git
 Set-Alias svim 'vim -u C:\Users\sunny\.SpaceVim\vimrc'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
@@ -27,7 +29,6 @@ Set-Alias vi 'C:\Program Files\Git\usr\bin\vi.exe'
 Set-Alias time 'C:\Program Files\Git\usr\bin\time'
 Set-Alias svim 'vim -u C:\Users\sunny\.SpaceVim\vimrc'
 # Set-Alias gv gvim
-# Set-Alias nv neovide
 
 # Utilities
 function which ($command){
@@ -243,3 +244,4 @@ function pkill($name) {
 function pgrep($name) {
         ps $name
 }
+
