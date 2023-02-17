@@ -72,6 +72,7 @@ vim.opt.termguicolors = true
 vim.cmd([[
 set signcolumn=yes
 set mouse=a
+" set autochdir
 " Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
 " autocmd BufEnter * call CHANGE_CURR_DIR()
 " function! CHANGE_CURR_DIR()
@@ -85,11 +86,13 @@ if (exists('+colorcolumn'))
 	set colorcolumn=80
 	highlight ColorColumn ctermbg=9
 	endif
-
+	set swapfile
+	set backup
 	set undofile
-	let &undodir = expand('~/nvimfiles/undo')
+	set directory=~/nvimfiles/swap2nd//
+	set backupdir=~/nvimfiles/backup2nd//
+	set undodir=~/nvimfiles/undo2nd//
 
-	if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
 		]])
 
 		local augroup = vim.api.nvim_create_augroup

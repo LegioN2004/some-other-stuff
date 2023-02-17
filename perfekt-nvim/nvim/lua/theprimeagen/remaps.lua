@@ -6,7 +6,8 @@ vim.keymap.set("n" , "<leader>un" , vim.cmd.UndotreeToggle)
 vim.keymap.set("n" , "<leader>te" , vim.cmd.Telescope)
 
 vim.cmd([[
-nnoremap ;f <Esc>:Lex<CR>:vertical resize 30<CR><CR>
+"" nnoremap ;f <Esc>:Lex<CR>:vertical resize 30<CR><CR>
+ nnoremap ;f <Esc>:NvimTreeToggle<CR>:vertical resize 30<CR><CR>
 let g:netrw_liststyle = 3
 
 "tab movement
@@ -31,14 +32,10 @@ nmap tn :tabnew<Return><C-w>w
 nmap <tab> :tabnext<Return>
 nmap <S-tab> :tabprevious<Return>
 
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
-map sh <C-w>h
-map sl <C-w>l
-map sj <C-w>j
-map sk <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 "for resizing windows 
 nmap <C-w><left> <C-w><

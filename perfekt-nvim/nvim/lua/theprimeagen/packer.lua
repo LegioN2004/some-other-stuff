@@ -59,7 +59,13 @@ return require 'packer'.startup(function()
 	use 'kyazdani42/nvim-web-devicons'
 	use 'tjdevries/express_line.nvim'
 	use 'j-hui/fidget.nvim'
-	use 'nvim-tree/nvim-web-devicons'
+	use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  },
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		requires = {
