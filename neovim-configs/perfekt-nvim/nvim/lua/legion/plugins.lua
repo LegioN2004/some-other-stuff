@@ -53,6 +53,7 @@ return require 'packer'.startup(function()
 		use 'mbbill/undotree'
 		use 'lewis6991/gitsigns.nvim'
 		use 'szw/vim-maximizer'
+		use 'navarasu/onedark.nvim'
 		-- use 'xolox/vim-session'
 		-- use 'xolox/vim-misc'
 		-- bufferline
