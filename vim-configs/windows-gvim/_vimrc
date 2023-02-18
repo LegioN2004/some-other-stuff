@@ -111,18 +111,13 @@ nnoremap <leader>Y "+y
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "just to make those backup files in another directory so as to not make a mess
-let &directory = expand('~\vimfiles\swap')
-
+"just to make those backup files in another directory so as to not make a mess
+set swapfile
 set backup
-let &backupdir = expand('~\vimfiles\backup')
-
 set undofile
-let &undodir = expand('~\vimfiles\undo')
-
-if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
-if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
-if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
-
+set directory=~/vimfiles/swap//
+set backupdir=~/vimfiles/backup//
+set undodir=~/vimfiles/undo//
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,11 +189,6 @@ function! CHANGE_CURR_DIR()
     unlet _dir
 endfunction
 
-
-source $VIMRUNTIME/vimrc_example.vim
-
-
-autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++23 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
 autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
-

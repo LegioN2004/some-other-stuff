@@ -52,8 +52,8 @@ vim.opt.updatetime = 50 --updatetime
 
 -- turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = '*',
-	command = 'set nopaste'
+		pattern = '*',
+		command = 'set nopaste'
 })
 
 vim.opt.formatoptions:append { 'r' }
@@ -82,16 +82,25 @@ set mouse=a
 " endfunction
 let g:netrw_banner=0        " disable annoying banner
 
+"" only for running cpp files in windows
+""autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++23 % -o %:r -Wl,--stack,268435456<CR>
+""autocmd filetype cpp nnoremap <F10> :!%:r<CR>
+autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++23 % -o %:r a.exe -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <F10> :vsp | term pwsh.exe .\a.exe<CR>
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+"" autocmd filetype cpp nnoremap <buffer> <leader>hr
+""  			\ :sp<CR> :term g++ --std=c++23 %<CR> :startinsert<CR>
+
 if (exists('+colorcolumn'))
-	set colorcolumn=80
-	highlight ColorColumn ctermbg=9
-	endif
-	set swapfile
-	set backup
-	set undofile
-	set directory=~/nvimfiles/swap2nd//
-	set backupdir=~/nvimfiles/backup2nd//
-	set undodir=~/nvimfiles/undo2nd//
+		set colorcolumn=80
+		highlight ColorColumn ctermbg=9
+		endif
+		set swapfile
+		set backup
+		set undofile
+		set directory=~/nvimfiles/swap2nd//
+		set backupdir=~/nvimfiles/backup2nd//
+		set undodir=~/nvimfiles/undo2nd//
 
 		]])
 
@@ -99,16 +108,16 @@ if (exists('+colorcolumn'))
 		local autocmd = vim.api.nvim_create_autocmd
 		local yank_group = augroup('HighlightYank', {})
 		autocmd('TextYankPost', {
-			group = yank_group,
-			pattern = '*',
-			callback = function()
-				vim.highlight.on_yank({
-					higroup = 'IncSearch',
-					timeout = 40,
-				})
-			end,
+				group = yank_group,
+				pattern = '*',
+				callback = function()
+						vim.highlight.on_yank({
+								higroup = 'IncSearch',
+								timeout = 40,
+						})
+				end,
 		}
-)
+		)
 
 
 

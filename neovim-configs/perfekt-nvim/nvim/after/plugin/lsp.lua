@@ -4,7 +4,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed ({
 	'clangd' ,
-	'sumneko_lua' ,
+	'lua_ls' ,
 	'html' ,
 	'cssls' ,
 	'emmet_ls' ,
@@ -31,11 +31,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-Space>"] = cmp.mapping.complete(),
 })
 
--- disable completion with tab
--- this helps with copilot setup
---cmp_mappings['<Tab>'] = nil
---cmp_mappings['<S-Tab>'] = nil
-
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
@@ -59,7 +54,7 @@ lsp.on_attach(function(client, bufnr)
 	end
 
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
 	vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)

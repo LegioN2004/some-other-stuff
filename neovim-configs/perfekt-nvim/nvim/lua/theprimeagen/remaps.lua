@@ -10,6 +10,10 @@ vim.cmd([[
  nnoremap ;f <Esc>:NvimTreeToggle<CR>:vertical resize 30<CR><CR>
 let g:netrw_liststyle = 3
 
+"sessions management
+nnoremap <leader>mk :mksession ~/.nvim/sessions/
+nnoremap <leader>so :so ~/.nvim/sessions/
+
 "tab movement
 nmap <tab> :tabnext<Return>
 nmap <S-tab> :tabprevious<Return>
