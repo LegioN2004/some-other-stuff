@@ -16,7 +16,7 @@ set splitright
 set mouse=a
 set guifont=Hack\ NF:h11:cANSI
 set guicursor=" "
-" GuiFont=Hack\ NF:h12:cANSI
+"GuiFont=Hack\ NF:h12:cANSI
 set hls
 set is
 set sw=4
