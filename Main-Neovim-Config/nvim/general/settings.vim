@@ -10,7 +10,6 @@ set fileencoding=utf-8
 set ruler
 set cmdheight=2
 set iskeyword+=-
-set t_Co=256
 set conceallevel=0
 set tabstop=2
 set shiftwidth=2
