@@ -11,9 +11,9 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = false --Switch on search pattern highlighting.
 vim.opt.showcmd = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 2
 vim.opt.laststatus = 2
--- vim.opt.expandtab = true
+vim.opt.expandtab = true
 -- vim.opt.scrolloff = 10
 -- vim.opt.shell = 'zsh'
 vim.opt.smarttab = true
@@ -73,6 +73,7 @@ vim.opt.formatoptions:append { 'r' }
 
 -- Always change the directory to working directory of file in current buffer
 vim.cmd([[
+
 let g:session_autosave = 'no'
 "set listchars=eol:⏎,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·
 " set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
@@ -86,6 +87,19 @@ let g:session_autosave = 'no'
 "   unlet _dir
 "endfunction
 
+set timeoutlen=100
+set noshowmode
+set showtabline=2
+set cursorline
+set mouse=a
+set pumheight=10
+set iskeyword+=-
+set conceallevel=0
+" set clipboard=unnamed, unnamedplus
+" set autochdir
+"auto source after write
+au! BufWritePost $MYVIMRC source %
+
 if (exists('+colorcolumn'))
     set colorcolumn=80
     highlight ColorColumn ctermbg=9
@@ -94,17 +108,13 @@ endif
 " format on save with coc-prettier
 " command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
-let s:coc_extensions = [
-\   'coc-css',
-\   'coc-sumneko-lua',
-\   'coc-lightbulb',
-\   'coc-clangd',
-\   'coc-html',
-\   'coc-htmlhint',
-\   'coc-emmet',
-\   'coc-eslint',
-\   'coc-prettier'
-\ ]
+"let s:coc_extensions = [
+" \   'coc-css',
+" \   'coc-sumneko-lua',
+" \   'coc-clangd',
+" \   'coc-emmet',
+" \   'coc-prettier'
+" \ ]
 
 "just to make those backup files in another directory so as to not make a mess
 set swapfile
@@ -114,9 +124,18 @@ set directory=~/nvimfiles/swap//
 set backupdir=~/nvimfiles/backup//
 set undodir=~/nvimfiles/undo//
 
-set mouse=a
+"sessions management ** fix these line till no 8 after these using live_grep to fix any repeating
+nnoremap <leader>mk :mksession ~/nvimfiles/sessions/
+nnoremap <leader>so :so ~/nvimfiles/sessions/
 
-let g:netrw_banner=0        " disable annoying banner
+"xolox-vim-sessions management
+let g:session_directory = "~/nvimfiles/xolox-vim-sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+
+"let g:netrw_banner=0        " disable annoying banner
 "let g:netrw_browse_split=4  " open in prior window
 "let g:netrw_altv=1          " open splits to the right
 "let g:netrw_liststyle=3     " tree view
