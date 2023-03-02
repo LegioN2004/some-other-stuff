@@ -5,6 +5,7 @@ source C:\Users\sunny\AppData\Local\nvim\plugins\elbytj.lua
 source C:\Users\sunny\AppData\Local\nvim\plugins\gitsigns.lua
 source C:\Users\sunny\AppData\Local\nvim\plugins\hop.lua
 source C:\Users\sunny\AppData\Local\nvim\plugins\lsp.lua
+source C:\Users\sunny\AppData\Local\nvim\plugins\cmp.lua
 source C:\Users\sunny\AppData\Local\nvim\plugins\nvim-tree.lua
 source C:\Users\sunny\AppData\Local\nvim\plugins\tabline.rc.vim
 source C:\Users\sunny\AppData\Local\nvim\plugins\telescope.lua
