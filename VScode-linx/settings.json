@@ -5,6 +5,7 @@
     "window.titleBarStyle": "native",
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "all",
+    "workbench.editor.enablePreview": false,
     "files.hotExit": "onExit",
     "workbench.startupEditor": "none",
     "explorer.confirmDelete": false,
@@ -17,7 +18,6 @@
     "terminal.integrated.defaultProfile.linux": "fish",
     "code-runner.runInTerminal": true,
     "security.workspace.trust.enabled": false,
-    "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
     "editor.inlineSuggest.enabled": true,
     "editor.smoothScrolling": true,
@@ -94,4 +94,6 @@
     },
     "window.commandCenter": true,
     "files.autoSave": "afterDelay",
+    "editor.minimap.autohide": true,
+    "codeium.enableSearch": true,
 }
