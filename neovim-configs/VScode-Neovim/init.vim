@@ -41,6 +41,7 @@ set signcolumn=yes
 set is 
 set si 
 let g:split_term_style = 'vertical'
+let g:fff#split = "30vnew"
 
 "------------------------------------------------------------------------------------
 "from here the mapping style is the same as in the vimrc and other init.vim and keymaps.lua
@@ -74,11 +75,20 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-"for resizing windows 
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+"-- resize with arrows
+nmap <c-up> :resize -2<cr>
+nmap <c-down> :resize +2<cr>
+nmap <c-left> :vertical resize -2<cr>
+nmap <c-right> :vertical resize +2<cr>
+
+"better copy and paste withing the vim register and clipboard
+"from ThePrimeagen
+" nmap <leader>p \"_dp<cr>
+" nmap <leader>y \"+y<cr>
+" vmap <leader>y \"+y<cr>
+" nmap <leader>Y \"+y<cr>
+" nmap <leader>d \"_d<cr>
+" vmap <leader>d \"_d<cr>
 
 " going up and down with cursor in the center of the buffer
 nnoremap <C-u> <C-u>zz
@@ -86,8 +96,11 @@ nnoremap <C-d> <C-d>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-let g:fff#split = "30vnew"
+"better tabbing
+vnoremap < <gv
+vnoremap > >gv
 
+" vscode-neovim stuff
 if has('win32')
   set rtp^=$HOME
 endif
@@ -113,8 +126,6 @@ vim.keymap.set('v', "<leader>y", "\"+y")
 vim.keymap.set('n', "<leader>Y", "\"+Y")
 
 vim.keymap.set('n', "<leader>d", "\"_d")
-vim.keymap.set('v', "<leader>d", "\"_d")
-
 vim.keymap.set('v', "<leader>d", "\"_d")
 
 local augroup = vim.api.nvim_create_augroup

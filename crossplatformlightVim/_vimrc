@@ -1,44 +1,71 @@
-colorscheme default
-set background=light
 syntax on                  " Enable syntax highlighting.
-set nocompatible
-set noshowmode
+colorscheme NeoSolarized
+set background=dark
 set autoshelldir  
-set t_Co=256
-set novisualbell
-set encoding=UTF-8
+set updatetime=40
 set laststatus=2
 set showtabline=2
-set updatetime=50
-set autoindent             " Respect indentation when starting a new line.
-set expandtab              " Expand tabs to spaces. Essential in Python.
+filetype plugin on
+"from here it the same as vscode init.vim
+filetype indent on
+set nocompatible
+set t_Co=256
+set encoding=UTF-8
+set termguicolors
+set splitright
+set wildmenu
+set showmatch
+set relativenumber
+set noshowmode
+set novisualbell
+set noerrorbells
+set vb t_vb=
+set belloff=all
+set hidden
+set tabstop=4 softtabstop=4
 set tabstop=4              " Number of spaces tab is counted for.
 set shiftwidth=4           " Number of spaces to use for autoindent.
 set backspace=2            " Fix backspace behavior on most terminals.
+set expandtab
+set autoindent             " Respect indentation when starting a new line.
+set smartindent 
+set nowrap
+set nu
+set smartcase
+set swapfile
+set backup
+set undofile
+set directory=~/vimfiles/swap//
+set backupdir=~/vimfiles/backup//
+set undodir=~/vimfiles/undo//
+set incsearch
+"set hlsearch
+set nohlsearch                    " Highlight search results.
 set nowrap
 packloadall                     " Load all plugins.
 silent! helptags ALL            " Load help files for all plugins.
 set wildmenu                    " Enable enhanced tab autocomplete.
 set wildmode=full  " Complete till longest string, then open menu.
-set number                      " Display column numbers.
-set relativenumber              " Display relative column numbers.
-set nohlsearch                    " Highlight search results.
-set undofile
 set incsearch                   " Search as you type.
-set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h10:cANSI "set font for gui version of vim/nvim
+"set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h12:cANSI "set font for gui version of vim/nvim
+set guifont=CaskaydiaCove\ NFM:h12:cANSI "set font for gui version of vim/nvim
 set is
 set si
 " set guioptions-=m  "menu bar
 " set guioptions-=T  "toolbar
 " set guioptions-=r  "scrollbar
 set go-=e
+set timeoutlen=300
 
+"-----------------------------------------------------------------------------
+" gvim stuff
 "8.2 Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
 function! CHANGE_CURR_DIR()
     let _dir = expand("%:p:h")
     exec "cd " . _dir
     unlet _dir
 endfunction
+"comment out the above if it interferes with the directory
 
 " toggle button to show gui buttons and topbar
 " function! ToggleGUICruft()
@@ -48,78 +75,117 @@ endfunction
 "     exec('set guioptions=i')
 "   endif
 " endfunction
-
 " nnoremap <leader>gui <Esc>:call ToggleGUICruft()<CR>
 
 " by default, hide gui menus
 " set guioptions=i
+"-----------------------------------------------------------------------------
 
 " -------------------------------------------------------
+"from here the mapping style is the same as in the vimrc and other init.vim and keymaps.lua
 "some keybinds for convenience
+"dont yank  with x
+"vim.keymap.set('n', 'x', '"_x')
 let mapleader = " "
+
+nmap + <c-a>
+nmap - <c-x>
+
 nmap tw :w!<cr>
 nmap twq :wq!<cr>
 nmap tws :wq! && :so%<cr>
 nmap tq :q!<cr>
 nmap ts :so %<cr>
+vnoremap <C-c> "*y
 
 "some windows keybinds
-nmap ss :split<Return><C-w>w
+nmap sh :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
-nmap tn :tabnew<Return><C-w>w
+nmap sx :close<cr>
 
+nmap tn :tabnew<Return><C-w>w
 "tab movement
 nmap <tab> :tabnext<Return>
 nmap <S-tab> :tabprevious<Return>
-" nmap <leader> <C-w>w
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
-map sh <C-w>h
-map sl <C-w>l
-map sj <C-w>j
-map sk <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
-"for resizing windows 
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+"-- resize with arrows
+nmap <c-up> :resize -2<cr>
+nmap <c-down> :resize +2<cr>
+nmap <c-left> :vertical resize -2<cr>
+nmap <c-right> :vertical resize +2<cr>
 
+"better copy and paste withing the vim register and clipboard
+"from ThePrimeagen
+nmap <leader>p \"_dp<cr>
+nmap <leader>y \"+y<cr>
+vmap <leader>y \"+y<cr>
+nmap <leader>Y \"+y<cr>
+nmap <leader>d \"_d<cr>
+vmap <leader>d \"_d<cr>
+
+
+"-----------------------------------------------------------------------------
 "fzf keymaps
 nnoremap <leader>fr :History<CR>
 nnoremap <leader>fzf :FZF ~<CR>
 nnoremap sf :Ex<CR>
 nnoremap <leader>fi :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\programs<CR>
 nnoremap <leader>dot :FZF C:\Users\sunny\Downloads\dotfiles\LegioN2004-githubthings\dotfiles<CR>
+nnoremap <leader>my :e $MYVIMRC<CR>
+nnoremap <leader>ex <Esc>:Ex<CR>
+"-----------------------------------------------------------------------------
 
-" maximizer
-nnoremap <leader>sm :MaximizerToggle<CR>
 
-" undotree
-nnoremap <leader>un :UndotreeToggle<CR>
-
-" going up and down with cursor in the center of the buffer
+" going half page up and down with center view
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+"better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
 " netrw thing
-nnoremap <leader>e <Esc>:Lex<CR>:vertical resize 30<CR>
+nnoremap ;f <Esc>:Lex<CR>:vertical resize 30<CR>
 let g:netrw_liststyle = 3
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
 
 " pasting from clipboard instead of the vim register fix this afterwards
-nnoremap <leader>Y "+y 
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"just to make those backup files in another directory so as to not make a mess
-set undofile
-let &undodir = expand('~\vimfiles\undo')
+nnoremap <leader>yy "+y 
 
-if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+"sessions management ** fix these line till no 8 after these using live_grep to fix any repeating
+nnoremap <leader>mk :mksession ~/vimfiles/sessions/
+nnoremap <leader>so :so ~/vimfiles/sessions/
 
-
-autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++14 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
 autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {{ {
+inoremap {} {}
+
+set nu
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set rnu
+    autocmd BufLeave,FocusLost,InsertEnter * set nornu
+augroup END
+
+"auto source after write
+au! BufWritePost $MYVIMRC source %
+
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
