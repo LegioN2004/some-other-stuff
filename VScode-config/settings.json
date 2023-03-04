@@ -5,7 +5,7 @@
   "workbench.editor.enablePreview": false,
   "git.confirmSync": false,
   //"editor.fontFamily": "RobotoMono NFM, UbuntuMono NFM, Iosevka Nerd Font, InconsolataLGC NFM, Cousine NFM , Arimo NF, MesloLGS NFM, JetBrainsMono NF, Hack NF ",
-  "editor.fontFamily": "JetBrainsMono NF, Hack NF",
+  "editor.fontFamily": "CaskaydiaCove NFM",
   "code-runner.runInTerminal": true,
   "editor.formatOnPaste": true,
   "code-runner.executorMapByFileExtension": {
@@ -57,12 +57,14 @@
   },
   "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 17,
   "terminal.integrated.fontFamily": "JetBrainsMono NF, Hack NF",
+
   "workbench.colorCustomizations": {
     "editor.background": "#1A1A1A",
     "statusBar.noFolderBackground": "#212121",
-    "statusBar.debuggingBackground": "#2a3940"
+    "statusBar.debuggingBackground": "#2a3940",
+    "statusBar.background": "#1A1A1A"
   },
   "editor.fontLigatures": true,
   "terminal.integrated.gpuAcceleration": "on",
@@ -87,6 +89,7 @@
       "path": ["D:\\Program Files\\Git\\bin\\bash.exe"],
       "icon": "terminal-bash"
     },
+
     "Arch (WSL)": {
       "path": "C:\\WINDOWS\\System32\\wsl.exe",
       "args": ["-d", "Arch"]
@@ -95,22 +98,36 @@
       "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
     }
   },
+
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "workbench.iconTheme": "vscode-icons",
+  "terminal.integrated.defaultProfile.linux": "bash",
   "editor.minimap.autohide": true,
   "settingsSync.ignoredExtensions": [
     "ms-vscode-remote.remote-wsl",
     "equinusocio.vsc-material-theme",
-    "equinusocio.vsc-community-material-theme"
+    "equinusocio.vsc-community-material-theme",
+    "formulahendry.auto-rename-tag",
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "twxs.cmake",
+    "ms-vscode.cmake-tools",
+    "divyanshuagrawal.competitive-programming-helper",
+    "formulahendry.code-runner",
+    "ecmel.vscode-html-css",
+    "htmlhint.vscode-htmlhint",
+    "oderwat.indent-rainbow",
+    "ms-vscode.live-server",
+    "ritwickdey.liveserver",
+    "esbenp.prettier-vscode",
+    "asvetliakov.vscode-neovim"
   ],
   "files.autoSave": "afterDelay",
   "explorer.confirmDragAndDrop": false,
   "vsicons.dontShowNewVersionMessage": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "emmet.triggerExpansionOnTab": false,
-  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
   "editor.autoClosingBrackets": "never",
   "editor.lineNumbers": "relative",
   "gitlens.defaultDateLocale": null,
@@ -121,11 +138,18 @@
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "window.commandCenter": true,
   "markdown.updateLinksOnFileMove.enabled": "always",
-  "vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\sunny\\Downloads\\nvim-win64\\nvim-win64\\bin\\nvim.exe",
   "terminal.integrated.fontSize": 14,
   "window.zoomLevel": -0.8,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.autoReplies": {}
+  "terminal.integrated.autoReplies": {},
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunnyDownloadsdotfilesLegioN2004-githubthingssome-other-stuff\\neovim-configsVScode-Neovim\\init.vim",
+  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
+  //"vscode-neovim.neovimInitVimPaths.win32": "~/AppData/Local/nvim/init.lua",
+  "workbench.colorTheme": "Visual Studio Dark"
 }
