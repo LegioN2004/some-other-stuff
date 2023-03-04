@@ -1,136 +1,131 @@
 {
-    "explorer.confirmDelete": false,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "git.confirmSync": false,
-    "editor.fontFamily": "JetBrainsMono NF, Hack NF",
-    "code-runner.runInTerminal": true,
-    "editor.formatOnPaste": true,
-    "workbench.editor.enablePreview": false,
-    "code-runner.executorMapByFileExtension": {
-        ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
-        ".vbs": "cscript //Nologo",
-        ".scala": "scala",
-        ".jl": "julia",
-        ".cr": "crystal",
-        ".ml": "ocaml",
-        ".exs": "elixir",
-        ".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-        ".rkt": "racket",
-        ".scm": "csi -script",
-        ".ahk": "autohotkey",
-        ".au3": "autoit3",
-        ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
-        ".kts": "kotlinc -script",
-        ".dart": "dart",
-        ".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        ".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-        ".hs": "runhaskell",
-        ".nim": "nim compile --verbosity:0 --hints:off --run",
-        ".csproj": "dotnet run --project",
-        ".fsproj": "dotnet run --project",
-        ".lisp": "sbcl --script",
-        ".kit": "kitc --run",
-        ".v": "v run",
-        ".vsh": "v run",
-        ".sass": "sass --style expanded",
-        ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        ".ring": "ring",
-        ".sml": "cd $dir && sml $fileName"
+  "explorer.confirmDelete": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "editor.mouseWheelZoom": true,
+  "workbench.editor.enablePreview": false,
+  "git.confirmSync": false,
+  //"editor.fontFamily": "RobotoMono NFM, UbuntuMono NFM, Iosevka Nerd Font, InconsolataLGC NFM, Cousine NFM , Arimo NF, MesloLGS NFM, JetBrainsMono NF, Hack NF ",
+  "editor.fontFamily": "JetBrainsMono NF, Hack NF",
+  "code-runner.runInTerminal": true,
+  "editor.formatOnPaste": true,
+  "code-runner.executorMapByFileExtension": {
+    ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
+    ".vbs": "cscript //Nologo",
+    ".scala": "scala",
+    ".jl": "julia",
+    ".cr": "crystal",
+    ".ml": "ocaml",
+    ".exs": "elixir",
+    ".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    ".rkt": "racket",
+    ".scm": "csi -script",
+    ".ahk": "autohotkey",
+    ".au3": "autoit3",
+    ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+    ".kts": "kotlinc -script",
+    ".dart": "dart",
+    ".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    ".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    ".hs": "runhaskell",
+    ".nim": "nim compile --verbosity:0 --hints:off --run",
+    ".csproj": "dotnet run --project",
+    ".fsproj": "dotnet run --project",
+    ".lisp": "sbcl --script",
+    ".kit": "kitc --run",
+    ".v": "v run",
+    ".vsh": "v run",
+    ".sass": "sass --style expanded",
+    ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    ".ring": "ring",
+    ".sml": "cd $dir && sml $fileName"
+  },
+  "C_Cpp.default.cppStandard": "c++23",
+  "C_Cpp.default.cStandard": "c17",
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "php": "C:\\php\\php.exe",
+    "python": "python",
+    "perl": "perl",
+    "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+    "go": "go run",
+    "html": "\"C:\\Program Data\\Google Chrome\\chrome.exe\"",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    // "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt" // the next line runs cpp files with names having spaces or dots,etc
+    "cpp": "cd $dir && g++ \"$fileName\" -o \"$fileNameWithoutExt.exe\" && & \"$dir$fileNameWithoutExt.exe\""
+  },
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "editor.fontSize": 16,
+  "terminal.integrated.fontFamily": "JetBrainsMono NF, Hack NF",
+  "workbench.colorCustomizations": {
+    "editor.background": "#1A1A1A",
+    "statusBar.noFolderBackground": "#212121",
+    "statusBar.debuggingBackground": "#2a3940"
+  },
+  "editor.fontLigatures": true,
+  "terminal.integrated.gpuAcceleration": "on",
+  "vscode_vibrancy.opacity": -1,
+  "glassit.alpha": 235,
+  "vscode_vibrancy.imports": ["$theme-style$"],
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
     },
-    "C_Cpp.default.cppStandard": "c++23",
-    "C_Cpp.default.cStandard": "c17",
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "php": "C:\\php\\php.exe",
-        "python": "python",
-        "perl": "perl",
-        "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
-        "go": "go run",
-        "html": "\"C:\\Program Data\\Google Chrome\\chrome.exe\"",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        // "cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt" // the next line runs cpp files with names having spaces or dots,etc
-        "cpp": "cd $dir && g++ \"$fileName\" -o \"$fileNameWithoutExt.exe\" && & \"$dir$fileNameWithoutExt.exe\""
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
     },
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "editor.fontSize": 16,
-    "terminal.integrated.fontFamily": "JetBrainsMono NF, Hack NF",
-    "workbench.colorCustomizations": {
-        "editor.background": "#1A1A1A",
-        "statusBar.noFolderBackground": "#212121",
-        "statusBar.debuggingBackground": "#2a3940"
+    "GitBash": {
+      "source": "Git Bash",
+      "path": ["D:\\Program Files\\Git\\bin\\bash.exe"],
+      "icon": "terminal-bash"
     },
-    "editor.fontLigatures": true,
-    "terminal.integrated.gpuAcceleration": "on",
-    "vscode_vibrancy.opacity": -1,
-    "glassit.alpha": 235,
-    "vscode_vibrancy.imports": [
-        "$theme-style$"
-    ],
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "GitBash": {
-            "source": "Git Bash",
-            "path": [
-                "D:\\Program Files\\Git\\bin\\bash.exe"
-            ],
-            "icon": "terminal-bash"
-        },
-        "Arch (WSL)": {
-            "path": "C:\\WINDOWS\\System32\\wsl.exe",
-            "args": [
-                "-d",
-                "Arch"
-            ]
-        },
-        "Windows PowerShell": {
-            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-        }
+    "Arch (WSL)": {
+      "path": "C:\\WINDOWS\\System32\\wsl.exe",
+      "args": ["-d", "Arch"]
     },
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "security.workspace.trust.untrustedFiles": "open",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "workbench.iconTheme": "vscode-icons",
-    "editor.minimap.autohide": true,
-    "settingsSync.ignoredExtensions": [
-        "ms-vscode-remote.remote-wsl",
-        "equinusocio.vsc-material-theme",
-        "equinusocio.vsc-community-material-theme"
-    ],
-    "files.autoSave": "afterDelay",
-    "explorer.confirmDragAndDrop": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "emmet.triggerExpansionOnTab": false,
-    "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
-    "editor.autoClosingBrackets": "never",
-    "editor.lineNumbers": "relative",
-    "gitlens.defaultDateLocale": null,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.semanticHighlighting.enabled": true,
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "window.commandCenter": true,
-    "markdown.updateLinksOnFileMove.enabled": "always",
-    "vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
-    "terminal.integrated.fontSize": 14,
-    "window.zoomLevel": -0.8,
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "terminal.integrated.autoReplies": {}
+    "Windows PowerShell": {
+      "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.minimap.autohide": true,
+  "settingsSync.ignoredExtensions": [
+    "ms-vscode-remote.remote-wsl",
+    "equinusocio.vsc-material-theme",
+    "equinusocio.vsc-community-material-theme"
+  ],
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDragAndDrop": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "emmet.triggerExpansionOnTab": false,
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
+  "editor.autoClosingBrackets": "never",
+  "editor.lineNumbers": "relative",
+  "gitlens.defaultDateLocale": null,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.semanticHighlighting.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "window.commandCenter": true,
+  "markdown.updateLinksOnFileMove.enabled": "always",
+  "vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
+  "terminal.integrated.fontSize": 14,
+  "window.zoomLevel": -0.8,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.autoReplies": {}
 }
