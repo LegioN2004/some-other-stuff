@@ -5,8 +5,8 @@
     "editor.fontFamily": "JetBrainsMono NF, Hack NF",
     "code-runner.runInTerminal": true,
     "editor.formatOnPaste": true,
+    "workbench.editor.enablePreview": false,
     "code-runner.executorMapByFileExtension": {
-
         ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
         ".vbs": "cscript //Nologo",
         ".scala": "scala",
@@ -57,86 +57,80 @@
     "git.enableSmartCommit": true,
     "editor.fontSize": 16,
     "terminal.integrated.fontFamily": "JetBrainsMono NF, Hack NF",
-
     "workbench.colorCustomizations": {
-    "editor.background" : "#1A1A1A",
-    "statusBar.noFolderBackground" : "#212121",
-    "statusBar.debuggingBackground": "#2a3940"
-},
-"editor.fontLigatures": true,
-"terminal.integrated.gpuAcceleration": "on",
-"vscode_vibrancy.opacity": -1,
-"glassit.alpha": 235,
-"vscode_vibrancy.imports": [
-
-    "$theme-style$"
-],
-"terminal.integrated.profiles.windows": {
-    "PowerShell": {
-        "source": "PowerShell",
-        "icon": "terminal-powershell"
+        "editor.background": "#1A1A1A",
+        "statusBar.noFolderBackground": "#212121",
+        "statusBar.debuggingBackground": "#2a3940"
     },
-    "Command Prompt": {
-        "path": [
-            "${env:windir}\\Sysnative\\cmd.exe",
-            "${env:windir}\\System32\\cmd.exe"
-        ],
-        "args": [],
-        "icon": "terminal-cmd"
+    "editor.fontLigatures": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "vscode_vibrancy.opacity": -1,
+    "glassit.alpha": 235,
+    "vscode_vibrancy.imports": [
+        "$theme-style$"
+    ],
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "GitBash": {
+            "source": "Git Bash",
+            "path": [
+                "D:\\Program Files\\Git\\bin\\bash.exe"
+            ],
+            "icon": "terminal-bash"
+        },
+        "Arch (WSL)": {
+            "path": "C:\\WINDOWS\\System32\\wsl.exe",
+            "args": [
+                "-d",
+                "Arch"
+            ]
+        },
+        "Windows PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
     },
-    "GitBash": {
-        "source": "Git Bash",
-        "path": [
-            "D:\\Program Files\\Git\\bin\\bash.exe"
-        ],
-        "icon": "terminal-bash"
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.minimap.autohide": true,
+    "settingsSync.ignoredExtensions": [
+        "ms-vscode-remote.remote-wsl",
+        "equinusocio.vsc-material-theme",
+        "equinusocio.vsc-community-material-theme"
+    ],
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "emmet.triggerExpansionOnTab": false,
+    "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
+    "editor.autoClosingBrackets": "never",
+    "editor.lineNumbers": "relative",
+    "gitlens.defaultDateLocale": null,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-
-    "Arch (WSL)": {
-        "path": "C:\\WINDOWS\\System32\\wsl.exe",
-        "args": [
-            "-d",
-            "Arch"
-        ]
+    "editor.semanticHighlighting.enabled": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "window.commandCenter": true,
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
+    "terminal.integrated.fontSize": 14,
+    "window.zoomLevel": -0.8,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "Windows PowerShell": {
-        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-    }
-},
-
-"terminal.integrated.defaultProfile.windows": "PowerShell",
-"security.workspace.trust.untrustedFiles": "open",
-"terminal.integrated.defaultProfile.linux": "zsh",
-"workbench.iconTheme": "vscode-icons",
-"editor.minimap.autohide": true,
-"settingsSync.ignoredExtensions": [
-    "ms-vscode-remote.remote-wsl",
-    "equinusocio.vsc-material-theme",
-    "equinusocio.vsc-community-material-theme"
-],
-"files.autoSave": "afterDelay",
-"explorer.confirmDragAndDrop": false,
-"vsicons.dontShowNewVersionMessage": true,
-"liveServer.settings.donotShowInfoMsg": true,
-"emmet.triggerExpansionOnTab": false,
-"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\sunny\\AppData\\Local\\nvim\\init.lua",
-"editor.autoClosingBrackets": "never",
-"editor.lineNumbers": "relative",
-"gitlens.defaultDateLocale": null,
-"[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"editor.semanticHighlighting.enabled": true,
-"typescript.inlayHints.enumMemberValues.enabled": true,
-"window.commandCenter": true,
-"markdown.updateLinksOnFileMove.enabled": "always",
-"vscode-neovim.neovimExecutablePaths.win32": "D:\\Program Files\\Neovim\\bin\\nvim.exe",
-"terminal.integrated.fontSize": 14,
-"window.zoomLevel": -0.8,
-"[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"terminal.integrated.autoReplies": {
-
-}
+    "terminal.integrated.autoReplies": {}
 }
