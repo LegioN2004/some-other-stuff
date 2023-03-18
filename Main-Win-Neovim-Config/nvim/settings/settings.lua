@@ -60,6 +60,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	command = 'set nopaste'
 })
 
+
 vim.opt.formatoptions:append { 'r' }
 -- vim.opt.signcolumn = yes
 -- Undo and backup options
@@ -73,8 +74,7 @@ vim.opt.formatoptions:append { 'r' }
 
 -- Always change the directory to working directory of file in current buffer
 vim.cmd([[
-
-let g:session_autosave = 'no'
+"let g:session_autosave = 'no'
 "set listchars=eol:⏎,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·
 " set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
 
@@ -87,14 +87,14 @@ let g:session_autosave = 'no'
 "   unlet _dir
 "endfunction
 
-set timeoutlen=100
+set timeoutlen=300
 set noshowmode
 set showtabline=2
 set cursorline
 set mouse=a
-set pumheight=10
-set iskeyword+=-
-set conceallevel=0
+set pumheight=20
+"set iskeyword+=-
+"set conceallevel=0
 " set clipboard=unnamed, unnamedplus
 " set autochdir
 "auto source after write
@@ -124,9 +124,7 @@ set directory=~/nvimfiles/swap//
 set backupdir=~/nvimfiles/backup//
 set undodir=~/nvimfiles/undo//
 
-"sessions management ** fix these line till no 8 after these using live_grep to fix any repeating
-nnoremap <leader>mk :mksession ~/nvimfiles/sessions/
-nnoremap <leader>so :so ~/nvimfiles/sessions/
+"** fix these line till no 8 after these using live_grep to fix any repeating
 
 "xolox-vim-sessions management
 let g:session_directory = "~/nvimfiles/xolox-vim-sessions"

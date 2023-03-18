@@ -1,6 +1,5 @@
 call plug#begin('C:\Users\sunny\AppData\Local\nvim\autoload\plugged')
 
-" Better syntax support
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'jiangmiao/auto-pairs'
@@ -14,10 +13,15 @@ Plug 'j-hui/fidget.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+
+"Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': 'latest' }
+Plug 'lewis6991/impatient.nvim'
+
 " LSP Support
 Plug 'neovim/nvim-lspconfig'             " Required
 Plug 'williamboman/mason.nvim'           " Optional
@@ -35,5 +39,6 @@ Plug 'hrsh7th/cmp-nvim-lua'     " Optional
 Plug 'L3MON4D3/LuaSnip'             " Required
 Plug 'rafamadriz/friendly-snippets' " Optional
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v1.x'}
-
+Plug 'nvim-treesitter/nvim-treesitter'  " Better syntax support
+Plug 'mfussenegger/nvim-jdtls' "java lsp
 call plug#end()
