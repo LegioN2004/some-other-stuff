@@ -17,5 +17,6 @@ source C:\Users\sunny\AppData\Local\nvim\settings\settings.lua
 source C:\Users\sunny\AppData\Local\nvim\settings\autocmd.lua
 "source C:\Users\sunny\AppData\Local\nvim\settings\settings.vim
 source C:\Users\sunny\AppData\Local\nvim\keys\keymaps.lua
-source C:\Users\sunny\AppData\Local\nvim\themes\onedark.vim
-source C:\Users\sunny\AppData\Local\nvim\settings\neovide.lua
+"source C:\Users\sunny\AppData\Local\nvim\themes\onedark.vim
+source C:\Users\sunny\AppData\Local\nvim\themes\colorscheme.vim
+source C:\Users\sunny\AppData\Local\nvim\settings\neovide.vim

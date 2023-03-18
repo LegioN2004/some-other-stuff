@@ -51,6 +51,10 @@ keymap("n", "tn", ":tabnew<return><c-w>w", opts)
 keymap("n", "<tab>", ":tabnext<return>", opts)
 keymap("n", "<s-tab>", ":tabprevious<return>", opts)
 
+--Buffer movement
+keymap("n", "<leader><tab>", ":bnext<return>", opts)
+keymap("n", "<leader><s-tab>", ":bprevious<return>", opts)
+
 --better movement between splits
 keymap("n", "<c-h>", "<c-w>h", opts)
 keymap("n", "<c-j>", "<c-w>j", opts)
@@ -98,6 +102,7 @@ vim.keymap.set('n', "<leader>mt", ":maximizertoggle<cr>")
 
 vim.cmd([[
 nnoremap <silent><leader>my :e ~/AppData/local/nvim/init.vim \| :source ~/AppData/local/nvim/init.vim <cr> ""\| :PlugUpdate<cr>
+nnoremap <silent><leader>pi :e ~/AppData/local/nvim/vim-plug/plugins.vim \| :source ~/AppData/local/vim-plug/plugins.vim <cr> ""\| :PlugUpdate<cr>
 
 "fzf keybindings
 nnoremap <silent> <leader>fzf :FZF ~<cr>

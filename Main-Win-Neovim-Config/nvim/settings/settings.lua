@@ -62,21 +62,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 
 vim.opt.formatoptions:append { 'r' }
--- vim.opt.signcolumn = yes
--- Undo and backup options
--- vim.opt.backup = false
--- vim.opt.writebackup = false
--- vim.opt.undofile = true
--- vim.opt.swapfile = false
-
--- copy to clipboard
--- vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 -- Always change the directory to working directory of file in current buffer
 vim.cmd([[
 "let g:session_autosave = 'no'
-"set listchars=eol:⏎,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·
-" set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
+"set listchars=eol:⏎,tab:\ \ |,trail:●,extends:…,precedes:…,space:·
 
 " Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
 " set autochdir
