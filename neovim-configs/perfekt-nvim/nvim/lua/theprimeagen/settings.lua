@@ -46,14 +46,14 @@ vim.opt.cindent = true
 vim.opt.ruler = true
 vim.opt.mouse = a
 -- vim.opt.clipboard=unnamed,unnamedplus -- set clipboard to universal for easy copy/paste to diff apps
-vim.opt.hidden = true --This option allows you to switch between multiple buffers without saving a changed buffer
+vim.opt.hidden = true    --This option allows you to switch between multiple buffers without saving a changed buffer
 vim.opt.mousehide = true --Hide the mouse pointer while typing.
-vim.opt.updatetime = 50 --updatetime
+vim.opt.updatetime = 50  --updatetime
 
 -- turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-		pattern = '*',
-		command = 'set nopaste'
+	pattern = '*',
+	command = 'set nopaste'
 })
 
 vim.opt.formatoptions:append { 'r' }
@@ -72,14 +72,6 @@ vim.opt.termguicolors = true
 vim.cmd([[
 set signcolumn=yes
 set mouse=a
-" set autochdir
-" Always change the directory to working directory of file in current buffer - http://vim.wikia.com/wiki/VimTip64
-" autocmd BufEnter * call CHANGE_CURR_DIR()
-" function! CHANGE_CURR_DIR()
-" let _dir = expand("%:p:h")
-" exec "cd " . _dir
-" unlet _dir
-" endfunction
 let g:netrw_banner=0        " disable annoying banner
 
 "" only for running cpp files in windows
@@ -104,20 +96,17 @@ if (exists('+colorcolumn'))
 
 		]])
 
-		local augroup = vim.api.nvim_create_augroup
-		local autocmd = vim.api.nvim_create_autocmd
-		local yank_group = augroup('HighlightYank', {})
-		autocmd('TextYankPost', {
-				group = yank_group,
-				pattern = '*',
-				callback = function()
-						vim.highlight.on_yank({
-								higroup = 'IncSearch',
-								timeout = 40,
-						})
-				end,
-		}
-		)
-
-
-
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup('HighlightYank', {})
+autocmd('TextYankPost', {
+	group = yank_group,
+	pattern = '*',
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = 'IncSearch',
+			timeout = 40,
+		})
+	end,
+}
+)
