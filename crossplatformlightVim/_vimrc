@@ -167,7 +167,7 @@ nnoremap <leader>mk :mksession ~/vimfiles/sessions/
 nnoremap <leader>so :so ~/vimfiles/sessions/
 
 "leader f to compile , leader r to run
-autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++23 % -o %:r -Wl,--stack,268435456<CR>
+autocmd filetype cpp nnoremap <leader>f :w <bar> !g++ -std=c++23 -g3 -Wall -ggdb -Werror % -o %:r -Wl,--stack,268435456<CR>
 autocmd filetype cpp nnoremap <leader>r :!%:r<CR>
 autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
 autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++17 % -o %:r -Wl,--stack,268435456<CR>
