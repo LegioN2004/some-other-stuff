@@ -1,16 +1,16 @@
-call plug#begin('C:\Users\sunny\AppData\Local\nvim\autoload\plugged')
+call plug#begin('C:\Users\hp\AppData\Local\nvim\autoload\plugged')
 
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'jiangmiao/auto-pairs'
-Plug 'joshdick/onedark.vim'
+Plug 'jceb/vim-orgmode' 
+Plug 'navarasu/onedark.nvim'
 Plug 'gruvbox-community/gruvbox'
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tjdevries/express_line.nvim'
+Plug 'j-hui/fidget.nvim'
 Plug 'mbbill/undotree'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'szw/vim-maximizer'
-Plug 'j-hui/fidget.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'

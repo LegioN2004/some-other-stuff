@@ -91,8 +91,8 @@ vim.keymap.set('n', "n", "nzzzv")
 ------------------------------------------------------------------
 
 -- shortcuts for commenting
-vim.keymap.set('n', "<leader>/", vim.cmd.Commentary)
-vim.keymap.set('v', "<leader>/", vim.cmd.Commentary)
+vim.keymap.set('n', "<leader>/", ":Commentary<cr>")
+vim.keymap.set('v', "<leader>/", ":Commentary<cr>")
 
 -- undotree keymaps
 vim.keymap.set('n', "<leader>un", ":undotreetoggle<cr>")
@@ -101,16 +101,16 @@ vim.keymap.set('n', "<leader>un", ":undotreetoggle<cr>")
 vim.keymap.set('n', "<leader>mt", ":maximizertoggle<cr>")
 
 vim.cmd([[
-nnoremap <silent><leader>my :e ~/AppData/local/nvim/init.vim \| :source ~/AppData/local/nvim/init.vim <cr> ""\| :PlugUpdate<cr>
+nnoremap <silent><leader>my :e ~/AppData/local/nvim/init.vim \| :source ~/AppData/local/nvim/init.vim <cr>
 nnoremap <silent><leader>pi :e ~/AppData/local/nvim/vim-plug/plugins.vim \| :source ~/AppData/local/vim-plug/plugins.vim <cr> ""\| :PlugUpdate<cr>
 
 "fzf keybindings
 nnoremap <silent> <leader>fzf :FZF ~<cr>
 nnoremap <silent> <leader>fr :history<cr>
 nnoremap <silent> <leader>ff :e %:h/<c-d>
-nnoremap <silent> <leader>fi :FZF ~/downloads/dotfiles/legion2004-githubthings/programs <cr>
-nnoremap <silent> <leader>dot :FZF ~/downloads/dotfiles/legion2004-githubthings/dotfiles <cr>
-"nnoremap <silent> <leader>hot :FZF~ <cr>
+nnoremap <silent> <leader>fi :FZF ~/Documents/dotfiles/legion2004-githubthings/programs <cr>
+nnoremap <silent> <leader>dot :FZF ~/Documents/dotfiles/legion2004-githubthings/dotfiles <cr>
+"nnoremap <silent> <leader>~ :FZF ~ <cr>
 
 "telescope sht
 nnoremap <silent> <leader>te :Telescope<cr>
