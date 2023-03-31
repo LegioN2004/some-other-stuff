@@ -14,7 +14,7 @@
     "neovim.neovimInitVimPaths.linux": " ~/ghq/github.com/legion2004/some-other-stuff/VScode Neovim/init.vim",
     "vscode-neovim.mouseSelectionStartVisualMode": false,
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.fontFamily": "JetBrainsMono-Regular, Hack NF",
+    "editor.fontFamily": "JetBrainsMono NF, Hack NF",
     "terminal.integrated.defaultProfile.linux": "fish",
     "code-runner.runInTerminal": true,
     "security.workspace.trust.enabled": false,
@@ -23,9 +23,8 @@
     "editor.smoothScrolling": true,
     "editor.suggestSelection": "first",
     "editor.fontLigatures": true,
-    "editor.fontSize": 16,
+    "editor.fontSize": 18,
     "workbench.list.smoothScrolling": true,
-    "workbench.colorTheme": "One Dark Pro Darker",
     "workbench.iconTheme": "material-icon-theme",
     // "workbench.productIconTheme": "icons-carbon",
     "workbench.colorCustomizations": {
@@ -96,4 +95,20 @@
     "files.autoSave": "afterDelay",
     "editor.minimap.autohide": true,
     "codeium.enableSearch": true,
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "php": "/usr/bin/php",
+        "python": "python",
+        "perl": "perl",
+        "ruby": "/usr/bin/ruby",
+        "go": "go run",
+        "html": "/usr/bin/min",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -fdiagnostics-color=always -g3 -std=c++2a -ggdb -pedantic-errors -Wall $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    },
+    "Code": "telemetry.disableTelemetry",
+    "window.zoomLevel": -1,
+    "debug.console.fontSize": 16,
+    "terminal.integrated.fontSize": 16
 }
