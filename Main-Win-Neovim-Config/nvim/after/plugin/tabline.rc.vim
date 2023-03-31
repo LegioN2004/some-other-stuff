@@ -1,4 +1,4 @@
-" Description: My custom tabline settings
+" " Description: My custom tabline settings
 
 function MyTabLine()
   let s = ''
@@ -43,4 +43,3 @@ function MyTabLabel(n)
 endfunction
 
 set tabline=%!MyTabLine()
-

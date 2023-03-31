@@ -1,4 +1,3 @@
-
 syntax on
 colorscheme gruvbox
 
