@@ -1,0 +1,73 @@
+return {
+	'lewis6991/impatient.nvim',
+	'nvim-lualine/lualine.nvim',
+	{
+		-- amongst your other plugins
+		{ 'akinsho/toggleterm.nvim', version = "*", config = true }
+	},
+	'ThePrimeagen/vim-be-good',
+	'mbbill/undotree',
+	'lewis6991/gitsigns.nvim',
+	'justinmk/vim-sneak',
+	'phaazon/hop.nvim',
+	'szw/vim-maximizer',
+	-- 'xolox/vim-session',
+	-- 'xolox/vim-misc',
+	-- bufferline
+	'akinsho/bufferline.nvim',
+	--colorscheme
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000 -- Ensure it loads first
+	},
+	{
+		'svrana/neosolarized.nvim',
+		dependencies = { 'tjdevries/colorbuddy.nvim' }
+	},
+	--language specific stuff
+	'tpope/vim-commentary',
+	'tpope/vim-surround',
+	'tpope/vim-fugitive',
+
+	-- 'windwp/nvim-ts-autotag',
+	'jiangmiao/auto-pairs',
+	'nvim-tree/nvim-web-devicons',
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	},
+	'nvim-lua/popup.nvim',
+	'nvim-lua/plenary.nvim',
+	'nvim-telescope/telescope.nvim',
+	-- not using the telescope file explorer doesn't show files like ide's i need to see them without entering the folder everytime
+	-- instead this
+	{
+		'nvim-tree/nvim-tree.lua',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
+		version = "nightly" -- optional, updated every week. (see issue #1193)
+	},
+	'junegunn/fzf',
+	'junegunn/fzf.vim',
+	-- use = { 'junegunn/fzf', build = './install --bin', }
+	{ 'neoclide/coc.nvim', branch = "release" },
+	{
+		'Exafunction/codeium.vim',
+		config = function()
+			-- Change '<C-g>' here to any keycode you like.
+			vim.keymap.set('i', '<TAB>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+			vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+			vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions']( -1) end, { expr = true })
+			vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+		end
+	},
+	--	{ 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
+	{
+		'goolord/alpha-nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		config = function()
+			require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+		end
+	},
+}
