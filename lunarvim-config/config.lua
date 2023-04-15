@@ -70,11 +70,10 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "lua",
-  "javascript",
-  "css",
   "java",
   "cpp",
   "html",
+  "vim",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -86,7 +85,7 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.lsp.installer.setup.ensure_installed = {
     "lua-language-server",
     "clangd",
-    "emmet-ls",
+    "prettier",
 }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
