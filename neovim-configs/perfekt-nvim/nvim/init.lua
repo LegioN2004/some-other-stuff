@@ -1,8 +1,0 @@
-print("Konichiwaaa")
-require("theprimeagen.remaps")
-require("theprimeagen.packer")
-require("theprimeagen.settings")
-require("theprimeagen.nvim-tree")
-require("legion.macros")
-require("legion.neovide")
-require("legion.telescope")
