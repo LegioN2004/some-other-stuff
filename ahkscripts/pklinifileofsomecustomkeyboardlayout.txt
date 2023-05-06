@@ -1,0 +1,378 @@
+[extend]
+;these keys are modified/transposed by holding down the 'extend key' (CapsLock by default):
+
+;+------+------+------+------+------+------+------+------+------+------+------+------+------+
+
+;|Esc + |F1 <> |F2 << |F3 >> |F4 <> |F5 <> |F6 << |F7 >> |F8 <> |F9 <> |F10<> |F11<> |F12<> |
+
+;| Caps | Play | Prev | Next | Stop | Mute | Vol- | Vol+ | Media| BrHom| Mail | App1 | App2 |
+
+;+======+======+======+======+======+======+======+======+======+======+======+======+======+
+
+;|` ¤¤¤ |1     |2     |3     |4     |5     |6     |7     |8     |9     |0     |-     |=     |
+
+;| Del  | F1   | F2   | F3   | F4   | F5   | F6   | F7   | F8   | F9   | F10  | F11  | F12  |
+
+;+------+------+------+------+------+------+------+------+------+------+------+------+------+
+
+;|Tab   |Q <<> |W +++ |F <>> |P *** |G *** |J ### |L ### |U ### |Y ### |; ¤¤¤ |[ ¤¤¤ |] ¤¤¤ |
+
+;|      | BrBck| Win  | BrFwd| *WhUp| *Btn1| PgUp | Home | Up   | End  | Del  | Esc  | Ins  |
+
+;+------+------+------+------+------+------+------+------+------+------+------+------+------+
+
+;|Caps+ |A +++ |R +++ |S +++ |T *** |D *** |H ### |N ### |E ### |I ### |O ¤¤¤ |' ¤¤¤ |\ ><> |
+
+;| ++++ | Alt  | Ctrl | Shift| *WhDn| *Up17| PgDn | Left | Down | Right| Back | Apps | BrFav|
+
+;+------+------+------+------+------+------+------+------+------+------+------+------+------+
+
+;|Z ¤¤¤ |X === |C === |V === |B *** |_ *** |K *** |M *** |, *** |. *** |/ *** |Spc ¤ |Entr¤ |
+
+;| Esc  | Cut  | Copy | Paste| *Le17| *Dn17| *Ri17| *Btn3| *WhLe| *WhRi| *Btn2| Enter| Break|
+
+;+------+------+------+------+------+------+------+------+------+------+------+-------------+
+
+;Legend: # Movement; + Modifiers; = GUI edit; * Mouse; <> MultiMedia; ¤ Various commands.
+
+
+
+
+
+; NOTES:
+
+; - This map shows a 'comfort' Colemak with VK_102 in the middle (the '_' key). See below.
+
+; - The actual remaps are by scan codes though, so the positions are layout independent!
+
+; - Multiple extending modifiers would've been nice; this setup is a general/basic one.
+
+; - For instance, extended virtual mousing, NumPad/maths, mirror layout, coder's toolbox...
+
+; - If your layout doesn't define the key, 'extend' won't work with it!
+
+;    * Workaround: Put, e.g., 'SC039 = SPACE	VirtualKey' in your layout .ini file.
+
+;    * This will be necessary for Escape/Space/Return/Back and F1-F12 for full functionality.
+
+; - The Tab key is currently a poor candidate for remapping because of problems with AltTab.
+
+;    * It might be useable as another extensor/modifier though?
+
+; - Unfortunately, the WARS (WASD) modifier block only works partially! A bug?
+
+;    * The S=Shift and A=Alt work fairly well, but the R=CtRL is dodgy.
+
+; - Are the "Wheel left/right" keys actual keys or AHK code?
+
+
+
+; TIPS:
+
+; - These mappings enable you to do many things without leaving the typing home position.
+
+;    * Mappings are based on ease of reach vs. usefulness, and some left-hand-only use.
+
+; - This could take some getting used to for the left pinky, but then it gets really cool!!!
+
+; - The Caps key plus Esc turns the CapsLock state on and off now.
+
+; - It's handy to control your browser back/forward with the left hand only while browsing.
+
+; - Similarly, the wheel up/down keys are favorites.
+
+; - Caps+Space for Enter is also nice; can be worked with left-hand-only as well.
+
+;    * To press dialogue buttons for instance, use Tab to move and Space/Q to select/abort.
+
+;    * A+Space (=Alt+Enter) when a file/disk is selected, brings up the object's Properties.
+
+; - Use the \ (or *Btn2) for context menus; arrows, 'mousing' or shortcuts select items.
+
+; - An Esc mapped to '[' (Telnet/Vim/etc compliant) is nice, but a left-hand one even better.
+
+; - The left-hand Del key is also convenient; the right-hand one is best when editing.
+
+; - Cut/Copy/Paste are Windows 'keypress' versions - should work mostly anywhere.
+
+;    * I wished to have an Undo key on 'z', but that doesn't exist!?!
+
+; - In theory, using WARS with the UNEI/LY/O' keys you can jump words, jump/select, etc.
+
+;    * Not all these are currently working though, so you may have to use 'real' modifiers.
+
+; - The number keys are mapped to function keys. They are reachable with the left hand!
+
+;    * A4 closes apps; W3 GUI-searches; 1(Help)/2(Rename)/3(Find)/5(Refresh) are useful too.
+
+; - The function keys are mapped to multimedia keys like the ones on multimedia keyboards.
+
+;    * Browser_Stop/Refresh/Search are usually covered by hotkeys (e.g., Esc/F5/^F).
+
+;    * Browser_Favorites usually needs a menu choice, so that's an inclusion candidate.
+
+; - The App1/2 keys are defined in the registry, in a ShellExecute (REG_SZ) value under (?):
+
+;    * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\17
+
+;    * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\18
+
+; - Wheel Up/Dn are nice for scrolling window bars; Wheel Left/Right for horizontal scroll.
+
+; - The 'virtual mousing' is rudimentary; a 'last resort' when arrows/Tab aren't enough.
+
+;    * A mousing resolution of 17 pixels roughly fits *most* context and similiar menus.
+
+;    * A full mouse layout would have multi-resolution, diagonals, sticky Btn1 and Btn4/Btn5.
+
+;    * The keyboard's auto-repeat makes virtual mousing odd/'laggy' when a key is held down.
+
+;    * In particular, beware of holding down the *Btn key(s) for a 'rapid-click' effect.
+
+
+
+
+
+; *** 'ESC'/'SPACE'
+
+SC001 = CapsLock
+
+SC039 = Enter
+
+
+
+; *** 'F1'-'F12'
+
+;The F key block holds multimedia keys, Logitech/Mac-style (F1-F4 are easiest to reach)
+
+SC03b = Media_Play_Pause
+
+SC03c = Media_Prev
+
+SC03d = Media_Next
+
+SC03e = Media_Stop
+
+SC03f = Volume_Mute
+
+SC040 = Volume_Down
+
+SC041 = Volume_Up
+
+SC042 = Launch_Media
+
+SC043 = Browser_Home
+
+SC044 = Launch_Mail
+
+SC057 = Launch_App1
+
+SC058 = Launch_App2
+
+
+
+; *** Row 1 (numbers/symbols)
+
+SC029 = Del
+
+SC002 = F1
+
+SC003 = F2
+
+SC004 = F3
+
+SC005 = F4
+
+SC006 = F5
+
+SC007 = F6
+
+SC008 = F7
+
+SC009 = F8
+
+SC00a = F9
+
+SC00b = F10
+
+SC00c = F11
+
+SC00d = F12
+
+SC00e = Sleep
+
+
+
+; *** Row 2 (upper letter row)
+
+SC00f = Tab
+
+SC010 = Browser_Back
+
+SC011 = Win
+
+SC012 = Browser_Forward
+
+SC013 = WheelUp
+
+SC014 = LButton
+
+SC015 = PgUp
+
+SC016 = Home
+
+SC017 = Up
+
+SC018 = End
+
+SC019 = Del
+
+SC01a = Esc
+
+SC01b = Ins
+
+
+
+; *** Row 3 (home row)
+
+;SC03a = CapsLock 
+
+SC01e = Alt
+
+SC01f = Ctrl
+
+SC020 = Shift
+
+SC021 = WheelDown
+
+SC022 = Click Rel 0,-17,0
+
+SC023 = PgDn
+
+SC024 = Left
+
+SC025 = Down
+
+SC026 = Right
+
+SC027 = BackSpace
+
+SC028 = AppsKey
+
+SC02b = Browser_Favorites
+
+SC01c = CtrlBreak
+
+
+
+; *** Row 4 (lower letter row)
+
+;SC02a = LShift
+
+; ***** SEE THE [EXTRA] SECTION FOR OPTIONAL 'COMFORT' REGISTRY REMAPPING *****
+
+; Non-registry-mapped 'comfort' layout - VK_102 in the lower left corner is used as 'Z'.
+
+SC056 = Esc
+
+SC02c = Cut
+
+SC02d = Copy
+
+SC02e = Paste
+
+SC02f = Click Rel -17,0,0
+
+SC030 = Click Rel 0,17,0
+
+SC031 = Click Rel 17,0,0
+
+SC032 = MButton
+
+; ***** END OF 'COMFORT'/'NON-COMFORT' PART (PASTE BETWEEN THESE LINES) *******
+
+SC033 = WheelLeft
+
+SC034 = WheelRight
+
+SC035 = RButton
+
+;SC036 = RShift
+
+
+
+
+
+[extra]
+
+; This section is not read by the program, but contains snippets for other sections.
+
+
+
+; Mappings for scan code mapped versus unmapped 'comfort' layout (ZXCVB+VK_102 keys)
+
+; (These keys may already be mapped on a lower level than PKL, by registry)
+
+; Copy the appropriate set into your pkl.ini -> [extend] section, row 4.
+
+
+
+; Non-registry-mapped 'comfort' layout - VK_102 in the lower left corner is used as 'Z'.
+
+SC056 = Esc
+
+SC02c = Cut
+
+SC02d = Copy
+
+SC02e = Paste
+
+SC02f = Click Rel -17,0,0
+
+SC030 = Click Rel 0,17,0
+
+SC031 = Click Rel 17,0,0
+
+SC032 = MButton
+
+
+
+; Non-registry-mapped 'non-comfort' layout - if you have no VK_102 key (or WANT pain?!).
+
+SC02c = Esc
+
+SC02d = Cut
+
+SC02e = Copy
+
+SC02f = Paste
+
+SC030 = Click Rel 0,17,0
+
+SC031 = Click Rel -17,0,0
+
+SC032 = Click Rel 17,0,0
+
+; Instead of a mouse 'cross', there's now up/down and left/right pairs.
+
+; If you want the middle button, you may replace the left-hand Esc (but I wouldn't).
+
+
+
+; Scancode/registry mapped 'comfort' layout - VK_102 now sits in the old 'B' position.
+
+SC02c = Esc
+
+SC02d = Cut
+
+SC02e = Copy
+
+SC02f = Paste
+
+SC030 = Click Rel -17,0,0
+
+SC056 = Click Rel 0,17,0
+
+SC031 = Click Rel 17,0,0
+
+SC032 = MButton
