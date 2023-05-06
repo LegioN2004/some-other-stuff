@@ -85,7 +85,7 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.lsp.installer.setup.ensure_installed = {
     "lua-language-server",
     "clangd",
-    "prettier",
+    "prettierd",
 }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
@@ -193,25 +193,21 @@ vim.keymap.set("n", "tqa", ":qa!<CR>", opts)
 vim.keymap.set("n", "twq", ":wq!<CR>", opts)
 vim.keymap.set("n", "ts", ":so%<CR>", opts)
 
+--splitting windows
+vim.keymap.set('n', 'sv', '<c-w>v', { silent = true })
+vim.keymap.set('n', 'sh', '<c-w>s', { silent = true })
+vim.keymap.set('n', 'sx', ':close<cr>', { silent = true })
+
 --(window keybinds) new tab
 vim.keymap.set("n", "tn", ":tabnew<Return><C-w>w", opts)
--- keymap("n", "te", ":tabedit<cr>", opts), { silent = true })
-
---splitting windows
-vim.keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
-vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
 
 --tab movement
 vim.keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 vim.keymap.set("n", "<S-tab>", ":tabprevious<Return>", opts)
 
---move window
--- vim.keymap.set('n', '<Space>', '<C-w>w')
-vim.keymap.set('', 's<left>', '<C-w>h')
-vim.keymap.set('', 's<up>', '<C-w>k')
-vim.keymap.set('', 's<down>', '<C-w>j')
-vim.keymap.set('', 's<right>', '<C-w>l')
-vim.keymap.set('', 's<right>', '<C-w>l')
+--tab movement
+vim.keymap.set("n", "<leader><tab>", ":bnext<Return>", opts)
+vim.keymap.set("n", "<leader><S-tab>", ":bprevious<Return>", opts)
 
 --better movement between splits
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
@@ -225,10 +221,7 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
---fzf
-vim.cmd([[nnoremap <silent> <leader>f :FZF<cr>
-nnoremap <silent> <leader>F :FZF ~<cr>]])
-
+vim.cmd([[ nnoremap ;f <Esc>:NvimTreeToggle<CR>:vertical resize 30<CR><CR>]])
 -- from ThePrimeagen ------------------------------------------
 
 -- best remap from the ThePrimeagen thanks brudda
@@ -247,22 +240,23 @@ vim.keymap.set('v', "<leader>d", "\"_d")
 
 lvim.transparent_window = true
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.opt.rnu = true
 vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
+vim.opt.timeoutlen = 100
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 autocmd('TextYankPost', {
-	group = yank_group,
-	pattern = '*',
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = 'IncSearch',
-			timeout = 40,
-		})
-	end,
+  group = yank_group,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 40,
+    })
+  end,
 })

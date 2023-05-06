@@ -2,12 +2,12 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed ({
-	'clangd' ,
-	'lua_ls' ,
-	'html' ,
-	'cssls' ,
-	'emmet_ls' ,
+lsp.ensure_installed({
+	'clangd',
+	'lua_ls',
+	'cssls',
+	'emmet_ls',
+	'prettier',
 })
 
 
@@ -23,7 +23,7 @@ lsp.configure('sumneko_lua', {
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -46,7 +46,7 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-	local opts = {buffer = bufnr, remap = false}
+	local opts = { buffer = bufnr, remap = false }
 
 	if client.name == "eslint" then
 		vim.cmd.LspStop('eslint')
