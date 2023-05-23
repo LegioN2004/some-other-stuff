@@ -110,5 +110,9 @@
     "Code": "telemetry.disableTelemetry",
     "window.zoomLevel": -1,
     "debug.console.fontSize": 16,
-    "terminal.integrated.fontSize": 16
+    "terminal.integrated.fontSize": 16,
+    "editor.mouseWheelZoom": true,
+    "diffEditor.wordWrap": "off",
+    "terminal.integrated.gpuAcceleration": "off",
+    "redhat.telemetry.enabled": true
 }
