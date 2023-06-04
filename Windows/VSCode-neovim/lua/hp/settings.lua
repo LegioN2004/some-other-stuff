@@ -61,26 +61,12 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 vim.opt.formatoptions:append({ "r" })
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 -- copy to clipboard
 -- vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 --highlights in the after/plugin/colorscheme.lua
 
-vim.opt.foldlevel = 99
-vim.o.foldcolumn = "1"
--- vim.o.foldlevelstart = 99
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = true
-vim.opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "/",
-	eob = " ",
-}
 vim.opt.mousemoveevent = true
 -- command completion
 vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*DS_STORE,*.db"
@@ -88,20 +74,8 @@ vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.x
 vim.opt.list = true
 vim.opt.listchars = "tab:>⋅,eol:⏎,trail:●,extends:▷,precedes:◁,nbsp:␣"
 
---- for noice.nvim stuff ---------------
-vim.opt.cmdheight = 1
-----new
----- Reduce command line messages since we can't see them properly anyway with
----- cmdheight = 0
---vim.opt.shortmess:append("C")
----- vim.opt.shortmess:append("S") -- We have our own search counter
---vim.opt.shortmess:append("c")
---vim.opt.shortmess:append("s")
-----------------------------------------
-
 vim.opt.shiftround = true -- Round indent
 vim.opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
-vim.opt.pumheight = 10 -- Maximum number of entries in a popup
 
 vim.opt.autowrite = true -- Enable auto write
 vim.opt.conceallevel = 3 -- Hide * markup for bold and italic
@@ -121,30 +95,12 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 
 vim.cmd([[
-filetype plugin on
-let g:session_autosave = 'no'
-"set listchars=eol:⏎,tab:\ \ ┊,trail:●·,extends:…,precedes:…,space:·
-"set listchars=tab:\ \ ┊,trail:,extends:…,precedes:…,space:
 
 if (exists('+colorcolumn'))
 set colorcolumn=80
 highlight ColorColumn ctermbg=9
 endif
 
-" format on save with coc-prettier
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
-"let s:coc_extensions = [
-"\   'coc-css',
-"\  'coc-sumneko-lua',
-"\  'coc-lightbulb',
-"\  'coc-clangd',
-"\  'coc-html',
-"\  'coc-htmlhint',
-"\  'coc-emmet',
-"\  'coc-eslint',
-"\  'coc-prettier'
-"]
 
 "just to make those backup files in another directory so as to not make a mess
 set swapfile
@@ -156,21 +112,6 @@ set undodir=~/nvimfiles/undo//
 
 set mouse=a
 
-let g:netrw_banner=0        " disable annoying banner
-"let g:netrw_browse_split=4  " open in prior window
-"let g:netrw_altv=1          " open splits to the right
-"let g:netrw_liststyle=3     " tree view
-"let g:netrw_list_hide=netrw_gitignore#Hide()
-"let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-" limelight stuff
-let g:limelight_conceal_ctermfg=244
-
-"markdown stuff
-let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css='~/ghq/github.com/sindresorhus/github-markdown-css/github-markdown-dark.css'
-
-"modifiable" setting turned on, to not prevent the "VeryLazy" autocommand  and other autocmds from being executed.
 set modifiable
 set buftype=
 ]])
@@ -179,6 +120,6 @@ set buftype=
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_gem_provider = 0
--- vim.g.loaded_node_provider = 0
+vim.g.loaded_node_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
