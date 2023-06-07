@@ -19,6 +19,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", " ❯ Find file", ":Telescope find_files <CR>"),
 	dashboard.button("n", " ❯ Create New file", ":ene! <BAR> startinsert <CR>"),
 	-- dashboard.button("p", " ❯ Find project", ":Telescope projects <CR>"),
+	dashboard.button("l", "󰒲 ❯ start Lazy package manager", ":Lazy<CR>"),
 	dashboard.button("r", " ❯ Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("t", " ❯ Find text(Grep)", ":Telescope live_grep <CR>"),
 	dashboard.button("c", " ❯ Configuration", ":e! $MYVIMRC<CR>"),
@@ -36,3 +37,4 @@ dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
 dashboard.opts.noautocmd = true
 vim.cmd([[autocmd User FileType alpha nofoldenable setlocal AlphaReady echo 'ready']])
+
