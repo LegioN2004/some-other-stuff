@@ -1,4 +1,5 @@
 require('core.settings')
+require('core.autocmds')
 
 -- lazy stuff start
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -24,7 +25,7 @@ vim.opt.rtp:prepend(lazypath)
 -- ]])
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "lazy")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	print("Lazy is not installed")
 	return
@@ -37,28 +38,28 @@ require("lazy").setup('plugins', {
 	ui = {
 		border = "rounded",
 	},
-		checker = {
-    -- automatically check for plugin updates
-    enabled = true,
-    concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-    notify = false, -- get a notification when new updates are found
-    frequency = 86400, -- check for updates every hour
-  },
-  change_detection = {
-    -- automatically check for config file changes and reload the ui
-    enabled = true,
-    notify = false, -- get a notification when changes are found
-  },
-  performance = {
-    cache = {
-      enabled = true,
-    },
-    reset_packpath = true, -- reset the package path to improve startup time
-	defaults = { lazy = true },
+	checker = {
+		-- automatically check for plugin updates
+		enabled = true,
+		concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+		notify = false, -- get a notification when new updates are found
+		frequency = 86400, -- check for updates every hour
+	},
+	change_detection = {
+		-- automatically check for config file changes and reload the ui
+		enabled = true,
+		notify = false, -- get a notification when changes are found
+	},
+	performance = {
+		cache = {
+			enabled = true,
+		},
+		reset_packpath = true, -- reset the package path to improve startup time
+		defaults = { lazy = true },
 		rtp = {
-      reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
-      ---@type string[]
-	debug = false,
+			reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
+			---@type string[]
+			debug = false,
 			disabled_plugins = {
 				"gzip",
 				"matchit",
@@ -77,7 +78,6 @@ require("lazy").setup('plugins', {
 -- core stufff
 require('core.alpha')
 require('core.keymaps')
-require('core.autocmds')
 -- require('core.macros')
 
 vim.cmd([[

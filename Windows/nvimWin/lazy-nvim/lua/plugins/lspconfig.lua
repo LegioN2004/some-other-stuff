@@ -13,7 +13,7 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      {'L3MON4D3/LuaSnip'},
+      { 'L3MON4D3/LuaSnip' },
       -- { 'saadparwaiz1/cmp_luasnip' },
       -- { 'rafamadriz/friendly-snippets' },
     },
@@ -25,11 +25,11 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
       luasnip.config.setup {}
 
+      local lsp = require("lsp-zero")
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
       -- local cmp_action = require('lsp-zero.cmp').action()
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
-      local lsp = require("lsp-zero")
       local cmp_mappings = lsp.defaults.cmp_mappings({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -42,15 +42,22 @@ return {
       lsp.setup_nvim_cmp({
         mapping = cmp_mappings
       })
-      lsp.set_preferences({
-        suggest_lsp_servers = true,
-        sign_icons = {
-          error = "",
-          warn = "",
-          hint = "",
-          info = "",
-        },
-      })
+
+      -- lsp.set_preferences({
+      --   suggest_lsp_servers = false,
+      --   sign_icons = {
+      --     error = "",
+      --     warn = "",
+      --     hint = "",
+      --     info = "",
+      --   },
+      -- })
+
+      local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
 
       cmp.setup({
         mapping = {
@@ -89,7 +96,7 @@ return {
           select = false,
         },
         window = {
-          documentation = {                                                                                                                                                                  
+          documentation = {
             border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
             max_height = 24,
             max_width = 106,
@@ -117,10 +124,10 @@ return {
   {
     'neovim/nvim-lspconfig',
     cmd = 'LspInfo',
-    event = {'BufReadPre', 'BufNewFile'},
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason-lspconfig.nvim' },
       {
         'williamboman/mason.nvim',
         build = ":MasonUpdate",
@@ -153,7 +160,7 @@ return {
         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>vcf", function() vim.lsp.buf.formatting() end, opts)
         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("n", "<leader>jca", "<cmd>lua require(\'jdtls\').code_action()<CR>", {silent = true})
+        vim.keymap.set("n", "<leader>jca", "<cmd>lua require(\'jdtls\').code_action()<CR>", { silent = true })
 
         -- lspsaga stuff ------------------------------------------------------------------
         local keymap = vim.keymap.set
@@ -185,7 +192,6 @@ return {
         -- Floating terminal
         keymap({ "n", "t" }, "<leader>tt", "<cmd>Lspsaga term_toggle<CR>")
         -- lspsaga stuff ------------------------------------------------------------------
-
       end)
 
       -- (Optional) Configure lua language server for neovim

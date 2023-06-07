@@ -1,11 +1,23 @@
 return {
-		-- main colorscheme
-		-- solarized or gruvbox
-		{ "gruvbox-community/gruvbox" },
-		{
-			"svrana/neosolarized.nvim",
-			dependencies = "tjdevries/colorbuddy.nvim",
-		},
+	-- main colorscheme
+	-- solarized or gruvbox
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"gruvbox-community/gruvbox",
+		-- lazy = true,
+	},
+	{
+		-- {
+		-- 	"svrana/neosolarized.nvim",
+		-- 	dependencies = "tjdevries/colorbuddy.nvim",
+		-- },
+		-- lazy = true,
+	},
 	{
 		"ishan9299/nvim-solarized-lua",
 		lazy = true,
