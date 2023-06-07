@@ -1,0 +1,11 @@
+{
+    "workspace.library": [
+        "/usr/share/nvim/runtime",
+        "/home/sunny/.local/share/lunarvim/lvim",
+        "/home/sunny/.local/share/lunarvim/site/pack/lazy/opt/neodev.nvim/types/stable",
+        "${3rd}/busted/library",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library",
+        "/home/sunny/.local/share/lvim/mason/packages/lua-language-server/libexec/meta/67b47c02"
+    ]
+}

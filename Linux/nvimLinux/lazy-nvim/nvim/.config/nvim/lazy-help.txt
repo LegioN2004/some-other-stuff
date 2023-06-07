@@ -1,0 +1,34 @@
+I can testify that this video has indeed helped me to do the move to lazy :)
+
+I was on the same path as OP though, i faced a bunch of different errors of several kinds.
+
+In the end what worked for me :
+
+restructure my whole configuration, with this simple structure (as found in lazy docs) :
+
+.config/nvim/init.lua ,
+
+.config/nvim/lua/plugins/init.lua
+
+and a lot of files : .config/nvim/lua/plugins/<group of related plugins or single plugin>.lua.
+
+each plugin file is structured like this :
+
+return {
+
+    'github/plugin',
+    lazy = false,
+    config = function()
+
+        -- previous configuration 
+
+    end
+
+}
+or if the file groups related plugins (mason, lsp, mini,....)
+
+To avoid problems, i put everything on lazy=false at start as you can see. Using file names on lua/plugins/ as a quick and dirty way to control the loading of plugins.
+
+As soon as configuration is complete and running, it is more easy imho to work with events, keys, priority, etc...
+
+https://github.com/LazyVim/LazyVim has been of great help too.
