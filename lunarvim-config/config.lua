@@ -1,5 +1,5 @@
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save.enabled = true
 lvim.colorscheme = "tokyonight"
 -- lvim.use_icons = false
 
@@ -71,6 +71,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 lvim.lsp.installer.setup.ensure_installed = {
   "lua_ls",
+  "prettier",
 }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
@@ -82,7 +83,7 @@ lvim.lsp.installer.setup.ensure_installed = {
 -- }
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
+lvim.lsp.installer.setup.automatic_installation = true
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
@@ -258,17 +259,14 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 
 -- c/c++ specific configuracion ---------------------------------------------------------------------------------------------
-lvim.format_on_save = false
+-- lvim.format_on_save = false
 
 lvim.builtin.treesitter.highlight.enable = true
 
 -- auto install treesitter parsers
-lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
+lvim.builtin.treesitter.ensure_installed = { "cpp", "c", "java", "javascript", "css", "html", "python", "bash" }
 
 -- Additional Plugins
-table.insert(lvim.plugins, {
-  "p00f/clangd_extensions.nvim",
-})
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
