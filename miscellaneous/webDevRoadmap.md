@@ -113,10 +113,6 @@ You don’t need to get into the module bundlers and build tools just yet. Just 
 
 ## Git and GitHub
 
-Absolutely! Here's a beginner-friendly introduction to Git and GitHub that you can include in your presentation:
-
----
-
 **Slide 1: Title Slide**
 
 - _Title:_ "Introduction to Git and GitHub"
@@ -262,10 +258,6 @@ You can have a look at my GitHub profile https://github.com/AyushRay06 and see h
 
 ## Tailwind
 
-Certainly! Here's a beginner-friendly introduction to Tailwind CSS that you can include in your presentation:
-
----
-
 **Slide 1: Title Slide**
 
 - _Title:_ "Introduction to Tailwind CSS"
@@ -302,13 +294,11 @@ Certainly! Here's a beginner-friendly introduction to Tailwind CSS that you can 
 **Slide 10: Conclusion**
 
 - _Embracing Tailwind:_
-  - "In conclusion, Tailwind CSS offers a fresh and efficient approach to styling web projects. By embracing its utility-first philosophy, you can create modern, responsive designs with speed and consistency. Happy coding!"
+  - "In conclusion, Tailwind CSS offers a fresh and efficient approach to styling web projects. By embracing its utility-first philosophy, you can create modern, responsive designs with speed and consistency.
 
 ---
 
 ## React
-
-Certainly! Here's a beginner-friendly introduction to React that you can include in your presentation:
 
 ---
 
