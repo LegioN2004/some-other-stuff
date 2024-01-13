@@ -2,11 +2,10 @@
 
 ---
 
-**Slide 1: Title Slide**
+**Title Slide**
 
 - _Title:_ "Introduction to Android Development"
 - _Subtitle:_ "Building Your First Mobile App"
-- _Your Name and Date_
 
 ---
 
@@ -18,7 +17,7 @@
 
 ---
 
-**Slide 3: Choosing your weapon, the language**
+**Choosing your weapon, the language**
 
 - _Java and Kotlin:_
 
@@ -40,9 +39,28 @@
 
 If you happen to be from the JavaScript background with a good amount of web development knowledge, you can opt for the cross-platform react-native journey which is a similar framework to React made by facebook(now Meta) but for mobile development. You may feel like home if you have done some react native development for making user interfaces using react and css. Also the react-native way is a bit easy to enter into the android development world using Expo and its set of tools(production level) since it doesn't need(almost) the main tools like android studio(believe us it is not that hard) which will be described later as they are the ones that makes most of the beginner people run away from android development, due its complexity and high chances of failure at the initial stage of just setting it up, locally.
 
+links resources
+
+- Websites
+  - Official react-native documentation: https://reactnative.dev/docs/getting-started
+- Youtube tutorials
+  - By Hitesh Chaudhury, for complete beginners: https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c&si=HLb5YijiESkXsUnH
+  - By JavaScript Mastery, building and deploying on the web: https://youtu.be/mJ3bGvy0WAY?si=gJX_fvMPGg8XsAA6
+  - By freeCodeCamp: https://youtu.be/obH0Po_RdWk?si=CV8kyd-JPw-YyAOJ
+
 #### Flutter framework using the Dart language
 
 Flutter – a revolutionary framework for crafting stunning, natively compiled applications for mobile, web, and desktop from a single codebase. Flutter employs Dart as its programming language, offering a delightful experience for developers with its simplicity and versatility. What sets Flutter apart is its hot reload feature, allowing you to see changes instantly and iterate on your designs swiftly(Expo with react-native also has that). With a rich set of pre-designed widgets, you can build beautiful and responsive user interfaces, while the reactive framework ensures a smooth and seamless user experience. What makes Flutter truly exceptional is its cross-platform capability. Your Flutter codebase becomes a powerhouse, enabling you to deploy your app not only on Android and iOS but also on the web and desktop platforms. Whether you're a seasoned developer or just starting, Flutter's ease of use and cross-platform potential make it an exciting and powerful tool for bringing your app ideas to life.
+
+links resources
+
+- Websites
+  - Official flutter documentation: https://docs.flutter.dev/
+  - Official dart documentation: https://dart.dev/guides since dart is the language you will code in
+- Youtube tutorials
+  - by Rivaan Ranawat https://youtu.be/CzRQ9mnmh44?si=vheQVSZIos9q_x1Z
+  - freeCodeCamp - https://youtu.be/VPvVD8t02U8?si=mcmQbibhK1_A1fLj
+  - and more on youtube
 
 ---
 
@@ -99,9 +117,11 @@ Flutter – a revolutionary framework for crafting stunning, natively compiled a
 
 - **YouTube Channels:**
 
-  - **Newboston Java Tutorials:** Easy-to-follow video tutorials: [https://www.youtube.com/watch?v=Hl-zzrqQoSE](https://www.youtube.com/watch?v=Hl-zzrqQoSE)
+  - **Newboston Java Tutorials:** Easy-to-follow video tutorials: [https://www.youtube.com/watch?v=Hl-zzrqQoSE](https://www.youtube.com/watch?v=Hl-zzrqQoSE) (too old but is okay)
   - [https://m.youtube.com/watch?v=n-xAqcBCws4](https://m.youtube.com/watch?v=n-xAqcBCws4) - Derek Banas - Clear and concise explanations of Java concepts, perfect for beginners.
-  - [https://www.youtube.com/watch?v=Hl-zzrqQoSE](https://www.youtube.com/watch?v=Hl-zzrqQoSE) - Newboston - Large collection of Java tutorials covering various topics.
+  - from WsCubeTech: https://youtube.com/playlist?list=PLjVLYmrlmjGdDps6HAwOOVoAtBPAgIOXL&si=bQsdID_nBw9pzQuX
+  - CodeWithHarry java playlist: https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q&si=azI-40a2g2wJcN9T
+  - BroCode java playlist: https://youtu.be/xk4_1vDrzzo?si=6HMf3ktR6Kwup9fp
 
 - **Websites:**
 
@@ -130,6 +150,7 @@ Flutter – a revolutionary framework for crafting stunning, natively compiled a
   - [https://www.youtube.com/watch?v=gN-0MnN9YsU](https://www.youtube.com/watch?v=gN-0MnN9YsU) - The Net Ninja - High-quality tutorials and courses on Kotlin, including Android development.
   - [https://www.youtube.com/user/androiddevelopers](https://www.youtube.com/user/androiddevelopers) - Android Developers - Official channel with Kotlin tutorials and talks related to Android development.
   - **CodingWithMitch Kotlin Tutorials:** Comprehensive video tutorials: [https://m.youtube.com/watch?v=BCSlZIUj18Y](https://m.youtube.com/watch?v=BCSlZIUj18Y)
+  - freecodecamp kotlin tutorial: https://youtu.be/EExSSotojVI?si=ujJ1aBrr2kwwKfu3
 
 * **Websites:**
   - [https://kotlinlang.org/docs/getting-started.html](https://kotlinlang.org/docs/getting-started.html) - Interactive Kotlin tutorials from the official website, covering various topics.
@@ -217,6 +238,10 @@ GitHub is a cloud-based hosting service for managing software version control us
 - YouTube Channels:
   - https://www.youtube.com/watch?v=QAbQgLGKd3Y - Newboston - Beginner-friendly tutorials on various Android development topics.
   - https://www.youtube.com/user/androiddevelopers - Android Developers - Official channel with talks, tutorials, and live coding sessions.
+  - freecodecamp: https://youtu.be/fis26HvvDII?si=EDumFbXrWW-htBjg
+  - more freecodecamp: https://youtu.be/fis26HvvDII?si=Z6ipNXA2CCKxqCbW
+  - CodeWithHarry: https://youtu.be/mXjZQX3UzOs?si=CavQITfTGbDtMqz8
+  - another freecodecamp android dev tutorial by Rahul Pandey with publishing to the play store: https://youtu.be/FjrKMcnKahY?si=Sa57Kpi0OJMGZR1z
 - Communities and Forums:
   - Stack Overflow - Ask questions and get help from experienced developers.
   - Reddit's r/androiddev community - Connect with other Android developers and learn from their experiences.
