@@ -208,6 +208,11 @@ You don’t need to get into the module bundlers and build tools just yet. Just 
     ```bash
     git commit -m "Your descriptive message"
     ```
+- _Pushing Changes:_
+  - "To push changes to the current working branch"
+    ```bash
+    git push
+    ```
 
 ---
 
@@ -263,7 +268,7 @@ You don’t need to get into the module bundlers and build tools just yet. Just 
 
 - links:
   - freeCodeCamp: <https://www.freecodecamp.org/news/git-and-github-for-beginners/>
-  - Git book: You can also grab the book from here which contains very detailed git documentation for free. <https://git-scm.com/book/en/v2>
+  - Git book: You can also grab the official book from here which contains very detailed git information as well as documentation for free. <https://git-scm.com/book/en/v2>
   - cheatsheet: <https://cs.fyi/guide/git-cheatsheet>
   - GitHub Guides: [https://github.com/git-guides](https://github.com/git-guides)
 - **YouTube Tutorials:**
@@ -410,6 +415,9 @@ In addition to the resources above, I would also recommend checking out the foll
 
 This marks the end of frontend basics that you needed, you can now move to the backend development. While you continue with the backend development, know that there is more to frontend development and remember to always checkout, revise, and learn as much as possible, the frontend stuff later in your journey.
 
+- some links to give you ideas and inspiration regarding frontend
+  - awwwards.com: This is a very beautiful website in itself as well as it gives awards to beautifully crafted websites and also shows a high-level breakdown of how they are made. This will surely motivate you to create awesome stuff.
+
 ## backend
 
 Congratulations on mastering the fundamentals of frontend development! You've successfully navigated through the world of HTML, CSS, and JavaScript, bringing static web pages to life and crafting visually appealing user interfaces. It's the perfect time to extend your skills into the backend realm. The backend is where you'll dive into server-side logic, database management, and the overall architecture that powers dynamic and interactive web applications. Think of it as adding the brain and muscles to the beautiful skeleton you've created on the frontend. As you embark on this journey, technologies like Node.js, Express, and databases like MongoDB will become your new tools. Embrace the challenges, and remember, your frontend knowledge will synergize with backend skills, allowing you to craft seamless, end-to-end web experiences.
@@ -524,5 +532,3 @@ links and resources:
 - **The Complete Web Developer Bootcamp 2023:** [https://www.udemy.com/course/web-development-complete-bootcamp-2023/](https://www.udemy.com/course/web-development-complete-bootcamp-2023/)
 - **Frontend Masters:** [https://frontendmasters.com/](https://frontendmasters.com/)
 - **Khan Academy Computer Programming:** [https://www.khanacademy.org/computing/computer-programming](https://www.khanacademy.org/computing/computer-programming)
-
-**Actual code:** Implementation of an almost good login backend with authentication with all the above technologies can be found in this link https://github.com/LegioN2004/Programs/blob/main/WebDev-stuff/Kirat-cohort-0-1/3.1-Middlewares-%26-Global-Catches/mongooseIntro.js. You may think this will be very hard but its not once you start building stuff.
