@@ -252,7 +252,3 @@ Remember, Android development is a journey, not a destination. Embrace the learn
   - "Congratulations on taking your first steps into Android development! With the skills you've gained, you're now equipped to build, test, and publish your own mobile apps. Keep coding, keep learning, and welcome to the exciting world of Android development!"
 
 ---
-
-Basic App Structure: ️ - Understand the core components of an Android app, like activities, layouts, views, and resources.
-
-This roadmap is just a starting point. As you progress, explore additional resources, personalize your learning path based on your interests, and keep building amazing apps!
