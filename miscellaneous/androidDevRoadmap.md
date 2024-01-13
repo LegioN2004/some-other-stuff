@@ -35,7 +35,7 @@
   - _XML Layouts:_
     - "XML (eXtensible Markup Language) is used for designing the layout and appearance of Android app interfaces. It allows developers to define UI elements and their properties in a structured manner."
 
-#### JavaScript
+#### React-Native framework using JavaScript
 
 If you happen to be from the JavaScript background with a good amount of web development knowledge, you can opt for the cross-platform react-native journey which is a similar framework to React made by facebook(now Meta) but for mobile development. You may feel like home if you have done some react native development for making user interfaces using react and css. Also the react-native way is a bit easy to enter into the android development world using Expo and its set of tools(production level) since it doesn't need(almost) the main tools like android studio(believe us it is not that hard) which will be described later as they are the ones that makes most of the beginner people run away from android development, due its complexity and high chances of failure at the initial stage of just setting it up, locally.
 
@@ -47,6 +47,7 @@ links resources
   - By Hitesh Chaudhury, for complete beginners: https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c&si=HLb5YijiESkXsUnH
   - By JavaScript Mastery, building and deploying on the web: https://youtu.be/mJ3bGvy0WAY?si=gJX_fvMPGg8XsAA6
   - By freeCodeCamp: https://youtu.be/obH0Po_RdWk?si=CV8kyd-JPw-YyAOJ
+  - more freeCodeCamp, project based course: https://youtu.be/u6gSSpfsoOQ?si=qKvMGo240B3jdgh_
 
 #### Flutter framework using the Dart language
 
