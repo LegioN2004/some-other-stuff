@@ -121,7 +121,7 @@ Now we are going to add (stage) this file and then commit and push it. This is t
 
 We first add the file by using `git add .` which adds all the files in the folder (one modified file in our case). Then we commit the file by running `git commit -m "modified one file"` followed by `git push -u origin main`.
 
-![final img](./git-pics/final img.png)
+![final img](./git-pics/final-img.png)
 
 Those are the three steps to pushing your modified files to GitHub. You add, commit, and then push. I hope you now understand file stages and the commands associated with them.
 
