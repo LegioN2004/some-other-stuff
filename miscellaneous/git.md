@@ -178,6 +178,11 @@ After that, run `git clone YOUR_HTTPS_URL`. This command pulls the remote reposi
 
 ![git clone](./git-pics/git-clone.png)
 
+- litte side note on the commands ran here
+  - `cd`: changes directory, using `..` or `../` goes to the previous directory and if you do `../../` goes back two previous directory and so on
+  - `mkdir`: creates a directory: I created a directory here because you cannot put two same directory in the same place. By pulling one from the github, it has the same name and as such I cannot put it there.
+  - So I created one directory called new-folder and `cd`ed into it and then cloned it locally
+
 ## Conclusion
 
 This article covered the basic commands that'll help get you started using Git. We also started learning how to use GitHub.
