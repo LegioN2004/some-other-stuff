@@ -26,9 +26,11 @@ I have created a folder on my desktop called Git and GitHub tutorial. Using the 
 
 `cd Git-and-GitHub-Tutorial`
 
-If you are new to the command line and are still learning how to use it to navigate around your PC, then I would suggest learning some basic commands of linux which will be universal for every systems using the bash shell(don't worry what this is, just remember the name) such as `cd` for change directory, `ls` to list files.
+If you are new to the command line and are still learning how to use it to navigate around your PC, then I would suggest learning some basic commands of linux which will be universal for every systems using the bash shell(don't worry what this is, just remember the name) such as `cd` for change directory, `ls` to list files or I would suggest using Microsoft's Visual Studio Code. It is a code editor which has an inbuilt terminal for executing commands. You can download it [here](https://code.visualstudio.com/Download), as per your operating system .
 
-Now to initialize your project, simply run git init. This will tell Git to get ready to start watching your files for every change that occurs. It looks like this:
+After installing VS Code, open your project in the editor and open a new terminal for your project. This automatically points the terminal/command line to your project's path. Then you can open the terminal in it and start working normally.
+
+Now to initialize your project, simply run `git init`. This will tell Git to get ready to start watching your files for every change that occurs. It looks like this:
 
 ![git-init](./git-pics/git-init-2.png)
 
