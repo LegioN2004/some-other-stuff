@@ -148,7 +148,7 @@ Now that we have a new branch created, this is what our repo will look like:
 
 We created the new branch from the state of our last commit. Let's now add more changes to this new branch.
 
-    I have added some new stuff. To merge the new state to the main branch, you have to first stage and commit this branch. I will not go into details about how to do this as we did it twice in the last section.
+I have added some new stuff. To merge the new state to the main branch, you have to first stage and commit this branch. I will not go into details about how to do this as we did it twice in the last section.
 
 You should try doing it yourself so you understand how it works. As a hint, add the file and then commit with a message (refer to the previous section for details showing you how to do that).
 
