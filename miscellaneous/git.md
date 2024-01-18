@@ -131,67 +131,55 @@ With branches, you can create a copy of a file you would like to work on without
 
 Before we go into using branches, I want to show you a visual representation of our repo which looks like this:
 
-g638
-main banch
+![main branc](./git-pics/branch1.png)
 The image above shows our main branch with the last two commits (the first commit and the added new task commit).
 
-At this point, I want to add more tasks to the list but I am not yet sure whether I want them on my main list. So I will create a new branch called test to see what my list would look like with more tasks included.
+At this point, I want to add more tasks to the list but I am not yet sure whether I want them on my main list. So I will create a new branch called 'test' to see what my list would look like with more tasks included.
 
-To create a new branch, run this command: git checkout -b test. I will break it down.
+To create a new branch, run this command: `git checkout -b test`. I will break it down.
 
-checkout tells Git it is supposed to switch to a new branch. -b tells Git to create a new branch. test is the name of the branch to be created and switched to. Here is the response you should get:
+`checkout` tells Git it is supposed to switch to a new branch. `-b` tells Git to create a new branch. `test` is the name of the branch to be created and switched to. Here is the response you should get:
 
-Screenshot--99-
-git checkout -b
+![checkout](./git-pics/checkout2.png)
+
 Now that we have a new branch created, this is what our repo will look like:
 
-g664
-git branch
-We created the new branch from the state of our last commit. Let's now add more tasks to this new branch.
+![branch](./git-pics/branch2.png)
 
-MY TO-DO LIST
+We created the new branch from the state of our last commit. Let's now add more changes to this new branch.
 
-1. Write an article.
-2. Code.
-3. Study books.
-4. Attend classes on time.
-5. Visit aunt.
-6. Apply for remote jobs.
-7. Practice code
-8. Complete internship task.
-9. Practice chess openings.
-10. Solve chess puzzles.
-11. Check exam schedule.
-    I have added four new tasks. To merge the new state to the main branch, you have to first stage and commit this branch. I will not go into details about how to do this as we did it twice in the last section.
+    I have added some new stuff. To merge the new state to the main branch, you have to first stage and commit this branch. I will not go into details about how to do this as we did it twice in the last section.
 
 You should try doing it yourself so you understand how it works. As a hint, add the file and then commit with a message (refer to the previous section for details showing you how to do that).
 
-After committing your test branch, switch back to the main branch by running this command: git checkout main.
+After committing your test branch, switch back to the main branch by running this command: `git checkout main`.
 
-Did you notice that we did not add -b ? This is because we are not creating a new branch but rather switching to an existing one. You can check all the branches that exist in your repo by running the git branch command.
+Did you notice that we did not add `-b` ? This is because we are not creating a new branch but rather switching to an existing one. You can check all the branches that exist in your repo by running the `git branch` command.
 
-Now we can merge the changes we made in the test branch into the main branch by running git merge test. At this point, you will see all the changes made in the test branch reflected on the main branch. You should also receive a response similar to this:
+Now we can merge the changes we made in the test branch into the main branch by running `git merge test`. At this point, you will see all the changes made in the test branch reflected on the main branch. You should also receive a response similar to this:
 
-Screenshot--100-
-git merge
+![branch push](./git-pics/branched-push.png)
+
 Here is a visual representation of our repo:
 
-g816
-git merge
-If you go on to push your repo to GitHub, you'll see that the test branch will not be pushed. It will only remain in your local repo. If you would like to push your test branch, switch to the branch using git checkout test and then run git push -u origin test.
+![branch push](./git-pics/visual-rep-branch.png)
 
-How to Pull a Repository in Git
+If you go on to push your repo to GitHub, you'll see that the test branch will not be pushed. It will only remain in your local repo. If you would like to push your test branch, switch to the branch using `git checkout test` and then run ` git push -u origin test`.
+
+## How to Pull a Repository in Git
+
 To pull in Git means to clone a remote repository's current state into your computer/repository. This comes in handy when you want to work on your repo from a different computer or when you are contributing to an open source project online.
 
-To test this, don't worry about switching to a new computer. Just run cd .. to leave the current directory and go back one step. In my own case, I have navigated back to my desktop.
+To test this, don't worry about switching to a new computer. Just run `cd ..` to leave the current directory and go back one step. In my own case, I have navigated back to my desktop.
 
 Go to GitHub, and on your repository's main page you should see a green button that says "Code". When you click on the button, you should see some options in a dropdown menu. Go on and copy the HTTPS URL.
 
-After that, run git clone YOUR_HTTPS_URL. This command pulls the remote repository into your local computer in a folder called git-and-git-tutorial. That is:
+After that, run `git clone YOUR_HTTPS_URL`. This command pulls the remote repository into your local computer in a folder called git-and-git-tutorial. That is:
 
-Screenshot--101-
-git clone
-Conclusion
+![git clone](./git-pics/git-clone.png)
+
+## Conclusion
+
 This article covered the basic commands that'll help get you started using Git. We also started learning how to use GitHub.
 
 If you have followed up to this point then congratulations, you are good to go. You can now use Git in your projects no matter what programming language you are using.
